@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     if (message.text === "/start") {
       await sendMessage(
         chatId,
-        "👋 <b>Halo! Selamat datang di StikerKu Bot!</b>\n\n" +
+        "👋 <b>Halo! Selamat datang di BobaSticker!</b>\n\n" +
           "📸 Kirim foto apa saja, dan aku akan langsung mengubahnya jadi stiker.\n\n" +
           "✨ Langsung kirim foto sekarang!"
       );

@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "StikerKu Bot — Foto Jadi Stiker Telegram Instan",
+  title: "BobaSticker — Foto Jadi Stiker Telegram Instan",
   description:
     "Kirim foto, terima stiker. Bot Telegram gratis yang mengubah foto kamu jadi stiker .webp 512×512 dalam hitungan detik. Tanpa login, tanpa bayar, selamanya gratis.",
   keywords: ["telegram", "stiker", "bot", "foto", "webp", "gratis"],
   openGraph: {
-    title: "StikerKu Bot — Foto Jadi Stiker Telegram",
+    title: "BobaSticker — Foto Jadi Stiker Telegram",
     description: "Kirim foto, terima stiker. Gratis selamanya.",
     type: "website",
   },

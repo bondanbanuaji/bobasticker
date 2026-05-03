@@ -1,5 +1,5 @@
 export default function Home() {
-  const BOT_USERNAME = "StikerKuBot"; // Ganti dengan username bot kamu
+  const BOT_USERNAME = "BobaSticker_bot"; 
 
   return (
     <main className="relative min-h-screen overflow-hidden">
@@ -146,7 +146,7 @@ export default function Home() {
       <section className="relative z-10 px-6 py-24">
         <div className="mx-auto max-w-5xl">
           <h2 className="mb-16 text-center text-3xl font-bold text-white sm:text-4xl">
-            Kenapa StikerKu?
+            Kenapa BobaSticker?
           </h2>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -197,7 +197,7 @@ export default function Home() {
             <span className="text-[#00cec9]">Sharp</span> · Deploy di Vercel
           </p>
           <p className="text-xs text-white/15">
-            © {new Date().getFullYear()} StikerKu Bot. Serverless & Stateless.
+            © {new Date().getFullYear()} BobaSticker. Serverless & Stateless.
           </p>
         </div>
       </footer>

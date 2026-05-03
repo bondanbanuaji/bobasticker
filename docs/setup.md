@@ -1,4 +1,4 @@
-# 📋 Setup Manual — StikerKu Bot
+# 📋 Setup Manual — BobaSticker
 
 > Panduan lengkap dari nol sampai bot aktif dan bisa dipakai.
 
@@ -18,8 +18,8 @@
 1. Buka Telegram, cari **@BotFather**
 2. Ketik `/newbot`
 3. Ikuti instruksi:
-   - Masukkan **nama bot** (contoh: `StikerKu`)
-   - Masukkan **username bot** (contoh: `StikerKuBot`) — harus diakhiri dengan `Bot`
+   - Masukkan **nama bot** (contoh: `BobaSticker`)
+   - Masukkan **username bot** (contoh: `BobaSticker_bot`) — harus diakhiri dengan `Bot` atau `_bot`
 4. BotFather akan memberikan **BOT_TOKEN** — simpan, jangan share ke siapapun
 
 > ⚠️ Token ini adalah kunci akses penuh ke bot kamu. Jangan commit ke repository.
@@ -31,10 +31,10 @@
 Buka file `app/page.tsx`, ganti baris ini:
 
 ```tsx
-const BOT_USERNAME = "StikerKuBot"; // Ganti dengan username bot kamu
+const BOT_USERNAME = "BobaSticker_bot"; // Ganti dengan username bot kamu
 ```
 
-Ganti `"StikerKuBot"` dengan username bot yang kamu buat di BotFather.
+Ganti `"BobaSticker_bot"` dengan username bot yang kamu buat di BotFather.
 
 ---
 
@@ -87,8 +87,8 @@ WEBHOOK_SECRET=random_string_yang_kamu_generate
 
 ```bash
 git add .
-git commit -m "feat: initial StikerKu bot"
-git remote add origin https://github.com/USERNAME/stikerku-bot.git
+git commit -m "feat: initial BobaSticker bot"
+git remote add origin https://github.com/USERNAME/bobasticker.git
 git push -u origin main
 ```
 
@@ -96,10 +96,10 @@ git push -u origin main
 
 1. Login ke [vercel.com](https://vercel.com)
 2. Klik **Add New Project**
-3. Import repository `stikerku-bot` dari GitHub
+3. Import repository `bobasticker` dari GitHub
 4. Vercel otomatis detect Next.js — klik **Deploy**
 5. Tunggu sampai deploy selesai
-6. Catat **URL production** kamu (contoh: `https://stikerku-bot.vercel.app`)
+6. Catat **URL production** kamu (contoh: `https://bobasticker.vercel.app`)
 
 ---
 
@@ -113,7 +113,7 @@ https://api.telegram.org/bot{BOT_TOKEN}/setWebhook?url=https://{VERCEL_URL}/api/
 
 Contoh:
 ```
-https://api.telegram.org/bot123456:ABC-DEF/setWebhook?url=https://stikerku-bot.vercel.app/api/webhook&secret_token=abc123secret
+https://api.telegram.org/bot123456:ABC-DEF/setWebhook?url=https://bobasticker.vercel.app/api/webhook&secret_token=abc123secret
 ```
 
 ### Verifikasi Webhook Aktif
@@ -171,7 +171,7 @@ Pastikan response menunjukkan:
 ## Struktur File Project
 
 ```
-stikerku-bot/
+bobasticker/
 ├── app/
 │   ├── api/
 │   │   └── webhook/
