@@ -127,7 +127,7 @@ export default function Home() {
               {/* Text Side */}
               <div className="flex-1 text-center lg:text-left z-10 animate-fade-in">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold uppercase tracking-wider mb-6">
-                  ✨ No.1 Sticker Bot Engine
+                  No.1 Sticker Bot Engine
                 </div>
                 <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-8 leading-[1.1]">
                   Ubah Foto Jadi <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-telegram)] to-[var(--color-whatsapp)]">Stiker</span> Secara Instan.

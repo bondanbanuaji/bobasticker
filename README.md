@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧋 BobaSticker 3.0
 
-## Getting Started
+> **Premium Auto-Sticker Bot Engine.**
+> Ubah foto jadi stiker WhatsApp & Telegram dalam hitungan detik dengan performa superior dan privasi mutlak.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🌟 Keunggulan Utama
+
+- **⚡ Performa Tanpa Antrean**: Menggunakan *C++ Sharp Engine* untuk rendering stiker di dalam memori. Waktu respons rata-rata < 1 detik.
+- **🔒 Privasi Mutlak**: Arsitektur *stateless*. Gambar Anda diproses secara *in-memory* dan langsung dihapus secara permanen dalam hitungan detik.
+- **📱 Multi-Platform**: Satu core engine untuk menggerakkan bot di WhatsApp dan Telegram sekaligus.
+- ** Desain Premium**: Landing page interaktif dengan integrasi Three.js (3D Boba Cup) dan Smooth Scrolling (Lenis).
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend (Landing Page)
+- **Framework**: Next.js 15 (App Router)
+- **3D Engine**: Three.js + React Three Fiber
+- **Styling**: Tailwind CSS 4 + Lucide Icons
+- **Animation**: Lenis (Smooth Scroll)
+
+### Bot Core
+- **WhatsApp**: Baileys (@whiskeysockets/baileys)
+- **Telegram**: Telegram Bot API (Webhook mode)
+- **Image Processing**: Sharp (High-performance Node.js image processing)
+
+---
+
+## 🚀 Cara Menjalankan
+
+### 1. Persiapan Environment
+Buat file `.env.local` di root folder dan `.env` di dalam folder `whatsapp-bot`.
+
+**Contoh `.env.local` (Frontend & Telegram):**
+```env
+BOT_TOKEN=your_telegram_bot_token
+WEBHOOK_SECRET=your_secret_token
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Contoh `whatsapp-bot/.env`:**
+```env
+PREFIX=.
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 2. Jalankan Frontend
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Jalankan WhatsApp Bot
+```bash
+cd whatsapp-bot
+npm install
+node index.js
+```
+Scan QR code yang muncul di terminal menggunakan aplikasi WhatsApp Anda.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📌 Daftar Command (Bot)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Command | Deskripsi |
+| :--- | :--- |
+| `.s` / `.sticker` | Kirim gambar dengan caption ini untuk membuat stiker |
+| `.ping` | Cek status dan kecepatan respons bot |
+| `.help` | Menampilkan menu bantuan lengkap |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ⚖️ Lisensi
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**BobaSticker 3.0 - All Rights Reserved.**
+Seluruh hak cipta dilindungi undang-undang. Penggunaan, penyalinan, atau pendistribusian ulang kode ini tanpa izin tertulis dari pemilik hak cipta dapat dikenakan sanksi hukum sesuai UU Hak Cipta yang berlaku.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Lihat file [LICENSE](./LICENSE) untuk detail hukum selengkapnya.
+
+---
+
+Crafted with precision by **BobaSticker Team**.

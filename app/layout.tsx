@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   description:
     "Kirim foto, terima stiker. Bot Telegram & WhatsApp gratis yang mengubah foto kamu jadi stiker .webp 512×512 dalam hitungan detik. Tanpa login, tanpa bayar, selamanya gratis.",
   keywords: ["telegram", "whatsapp", "stiker", "bot", "foto", "webp", "gratis"],
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
+  themeColor: "#ffffff",
   openGraph: {
     title: "BobaSticker — Foto Jadi Stiker Telegram & WA",
     description: "Kirim foto, terima stiker. Gratis selamanya.",
