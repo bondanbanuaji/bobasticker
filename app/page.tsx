@@ -14,6 +14,7 @@ const Boba3D = dynamic(() => import("./components/Boba3D"), { ssr: false });
 
 export default function Home() {
   const BOT_USERNAME = "BobaSticker_bot";
+  const WA_NUMBER = "6283190230065";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -108,7 +109,7 @@ export default function Home() {
                 Coba di Telegram
               </a>
               <a 
-                href="#"
+                href={`https://wa.me/${WA_NUMBER}`}
                 className="w-full py-4 rounded-2xl bg-[var(--color-whatsapp)] text-white font-bold text-center shadow-lg shadow-green-200 flex items-center justify-center gap-2"
               >
                 Coba di WhatsApp
@@ -145,7 +146,7 @@ export default function Home() {
                     BOT TELEGRAM
                   </a>
                   <a 
-                    href="#"
+                    href={`https://wa.me/${WA_NUMBER}`}
                     className="flex items-center gap-3 px-8 py-4 bg-[var(--color-whatsapp)] text-white rounded-2xl font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-green-200"
                   >
                     <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.483 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.308 1.656zm6.749-3.921l.393.232c1.32.782 2.825 1.195 4.364 1.196 4.904 0 8.895-3.991 8.898-8.897.001-2.377-.924-4.612-2.606-6.294s-3.918-2.607-6.295-2.607c-4.904 0-8.896 3.991-8.898 8.897-.001 1.611.431 3.183 1.251 4.568l.273.457-1.01 3.693 3.73-.978zm11.516-5.836c-.104-.174-.383-.28-.731-.454-.347-.174-2.057-1.015-2.374-1.13-.318-.116-.549-.174-.781.174-.231.347-.893 1.13-1.094 1.361-.202.231-.403.261-.75.087-.348-.174-1.467-.541-2.793-1.724-1.031-.919-1.727-2.054-1.93-2.399-.202-.347-.021-.535.153-.708.156-.156.347-.404.522-.607.174-.202.231-.347.347-.579.117-.231.059-.434-.028-.608-.088-.174-.781-1.882-1.071-2.576-.282-.676-.57-.585-.781-.596-.202-.01-.433-.01-.666-.01-.231 0-.608.087-.927.434-.319.347-1.216 1.187-1.216 2.895 0 1.708 1.246 3.358 1.419 3.59.174.231 2.452 3.743 5.94 5.249.83.358 1.478.572 1.983.732.833.264 1.591.227 2.19.137.669-.101 2.057-.84 2.347-1.65.29-.811.29-1.506.202-1.651z"/></svg>
