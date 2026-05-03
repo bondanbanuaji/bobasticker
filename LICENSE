@@ -1,18 +1,52 @@
-Pernyataan Lisensi BobaSticker (Versi 3.0 - All Rights Reserved)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+==============================================================================
+BOBASTICKER 3.0 - OFFICIAL LICENSE AGREEMENT (PERJANJIAN LISENSI RESMI)
+==============================================================================
 
-Hak Cipta (c) 2026 BobaSticker. Seluruh hak cipta dilindungi undang-undang.
+[ENGLISH VERSION]
 
-DILARANG KERAS bagi siapapun untuk:
-1. Menyalin, menggandakan, atau mendistribusikan ulang kode sumber (source code) ini tanpa izin tertulis dari pemilik hak cipta.
-2. Menggunakan kode ini untuk tujuan komersial atau mengambil keuntungan finansial tanpa kontrak kerja sama resmi.
-3. Menghapus, mengubah, atau menyembunyikan atribusi hak cipta (watermark/logo) yang ada di dalam kode maupun tampilan frontend.
-4. Melakukan reverse-engineering atau modifikasi kode untuk membuat produk tandingan tanpa izin.
+Copyright (c) 2026 BobaSticker. All Rights Reserved.
 
-Pelanggaran terhadap ketentuan di atas dapat dikenakan sanksi hukum sesuai dengan Undang-Undang Hak Cipta yang berlaku di wilayah hukum Republik Indonesia.
+1. OWNERSHIP
+This software, including all its source code, assets, UI designs, and documentation, is the exclusive property of BobaSticker ("Owner"). It is protected by international copyright laws and treaties.
 
-Segala bentuk penggunaan kode ini untuk kepentingan publik atau deployment mandiri WAJIB mendapatkan persetujuan langsung dari pemilik BobaSticker.
+2. LICENSE RESTRICTIONS
+By accessing or using this software, you agree to the following strict prohibitions:
+- REDISTRIBUTION: You are strictly prohibited from copying, redistributing, or publishing the source code or any part of it in any form without prior written consent from the Owner.
+- COMMERCIAL USE: You may not use this software for any commercial purposes or financial gain. This includes, but is not limited to, charging fees for access to the bot or selling the software as a product.
+- DERIVATIVE WORKS: You may not modify, adapt, or create derivative works based on this software for the purpose of creating a competing product.
+- ATTRIBUTION: You must not remove, alter, or hide any copyright notices, logos, or watermarks present in the code or the user interface.
+- REVERSE ENGINEERING: You may not decompile or reverse-engineer the software to extract the original logic or architecture.
 
-Kontak Izin: [Masukkan Kontak/Email Anda di sini]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-"Respect the Engineer, Respect the Code."
+3. LEGAL CONSEQUENCES
+Unauthorized use, duplication, or distribution of this software is a violation of copyright law and may result in severe civil and criminal penalties. BobaSticker reserves the right to take legal action against any individual or entity that violates these terms.
+
+4. PERMISSION
+Any use of this software beyond personal study requires direct written authorization from the Owner.
+
+---
+
+[VERSI BAHASA INDONESIA]
+
+Hak Cipta (c) 2026 BobaSticker. Seluruh Hak Cipta Dilindungi Undang-Undang.
+
+1. KEPEMILIKAN
+Perangkat lunak ini, termasuk seluruh kode sumber, aset, desain antarmuka (UI), dan dokumentasinya, adalah properti eksklusif dari BobaSticker ("Pemilik"). Perangkat lunak ini dilindungi oleh undang-undang hak cipta dan perjanjian internasional.
+
+2. BATASAN LISENSI
+Dengan mengakses atau menggunakan perangkat lunak ini, Anda setuju untuk mematuhi larangan ketat berikut:
+- REDISTRIBUSI: Anda dilarang keras untuk menyalin, mendistribusikan ulang, atau mempublikasikan kode sumber atau bagian manapun darinya dalam bentuk apapun tanpa izin tertulis dari Pemilik.
+- PENGGUNAAN KOMERSIAL: Anda tidak diperbolehkan menggunakan perangkat lunak ini untuk tujuan komersial atau keuntungan finansial apapun. Ini termasuk, namun tidak terbatas pada, memungut biaya untuk akses ke bot atau menjual perangkat lunak ini sebagai produk.
+- KARYA TURUNAN: Anda tidak diperbolehkan memodifikasi, mengadaptasi, atau membuat karya turunan berdasarkan perangkat lunak ini dengan tujuan menciptakan produk tandingan.
+- ATRIBUSI: Anda dilarang menghapus, mengubah, atau menyembunyikan pemberitahuan hak cipta, logo, atau tanda air (watermark) yang ada di dalam kode maupun antarmuka pengguna.
+- REKAYASA BALIK: Anda dilarang melakukan dekompilasi atau rekayasa balik (reverse-engineering) pada perangkat lunak ini untuk mengekstrak logika atau arsitektur aslinya.
+
+3. KONSEKUENSI HUKUM
+Penggunaan, penggandaan, atau distribusi tanpa izin dari perangkat lunak ini merupakan pelanggaran hukum hak cipta dan dapat mengakibatkan tuntutan perdata maupun pidana yang berat. BobaSticker berhak mengambil tindakan hukum terhadap individu atau entitas manapun yang melanggar ketentuan ini.
+
+4. PERIZINAN
+Segala bentuk penggunaan perangkat lunak ini di luar tujuan studi pribadi wajib mendapatkan otorisasi tertulis langsung dari Pemilik.
+
+==============================================================================
+CONTACT / KONTAK: bondanbanuji@gmail.com
+==============================================================================
+"Respect the Work, Respect the Creator."

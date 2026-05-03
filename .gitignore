@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# project specific
+/docs/
+/whatsapp-bot/auth_info_baileys/
+.env*
+.env.local
+whatsapp-bot/.env
