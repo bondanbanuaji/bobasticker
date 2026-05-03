@@ -1,45 +1,9 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 :root {
-  /* Core Colors */
-  --background: #000000;
-  --foreground: #ffffff;
-  
-  /* Typography Colors */
-  --text-primary: #ededed;
-  --text-secondary: #a1a1aa;
-  --text-tertiary: #52525b;
-
-  /* Surface & Borders */
-  --surface: #09090b;
-  --surface-hover: #18181b;
-  --border: #27272a;
-  --border-subtle: #18181b;
-
-  /* Accent Colors (Used sparingly for recognizable CTAs) */
-  --accent-telegram: #2AABEE;
-  --accent-telegram-hover: #229ED9;
-  --accent-whatsapp: #25D366;
-  --accent-whatsapp-hover: #128C7E;
-
-  /* Motion */
-  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out: cubic-bezier(0.21, 0.93, 0.32, 1);
-  --duration-fast: 150ms;
-  --duration-normal: 300ms;
-  --duration-slow: 500ms;
-
-  /* Spacing Scale (Base: 4px) */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-24: 96px;
-  --space-32: 128px;
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
 @theme inline {
@@ -50,56 +14,22 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--text-primary);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Base resets for typography hierarchy */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--foreground);
-  letter-spacing: -0.02em;
+/* Float animation for decorative elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
 }
 
-p {
-  color: var(--text-secondary);
-  line-height: 1.6;
+.animate-float {
+  animation: float 5s ease-in-out infinite;
 }
 
-/* Deliberate Motion */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUpFade {
-  from { 
-    opacity: 0; 
-    transform: translateY(12px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn var(--duration-slow) var(--ease-out) forwards;
-}
-
-.animate-slide-up {
-  opacity: 0;
-  animation: slideUpFade var(--duration-slow) var(--ease-spring) forwards;
-}
-
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-
-/* Selection */
-::selection {
-  background: rgba(255,255,255,0.2);
-  color: white;
+.animate-float-delay {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 2s;
 }
