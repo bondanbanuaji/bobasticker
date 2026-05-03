@@ -1,4 +1,8 @@
 /**
+ * BobaSticker 3.0 - All Rights Reserved
+ * Copyright (c) 2026 BobaSticker
+ */
+/**
  * Telegram Webhook Route Handler.
  *
  * Flow:

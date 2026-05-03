@@ -1,3 +1,7 @@
+/**
+ * BobaSticker 3.0 - All Rights Reserved
+ * Copyright (c) 2026 BobaSticker
+ */
 require('dotenv').config();
 const {
   default: makeWASocket,

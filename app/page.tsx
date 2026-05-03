@@ -1,3 +1,8 @@
+/**
+ * BobaSticker 3.0 - All Rights Reserved
+ * Copyright (c) 2026 BobaSticker
+ * Dilarang keras menyalin atau mendistribusikan kode tanpa izin.
+ */
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -15,8 +20,13 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300);
+      if (window.scrollY > 400) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -40,11 +50,11 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden selection:bg-gray-200">
       
-      {/* Navbar */}
-      <nav className="w-full border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-2 z-50">
+          <div className="flex justify-between h-20 items-center">
+            <div className="flex items-center gap-2">
               <span className="text-2xl">🧋</span>
               <span className="font-heading font-bold text-xl tracking-tight text-gray-900">BobaSticker</span>
             </div>
@@ -52,7 +62,7 @@ export default function Home() {
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               <a href="#performance" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Keunggulan</a>
-              <a href="#features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Fitur</a>
+              <a href="#philosophy" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Filosofi</a>
             </div>
 
             {/* Mobile Burger Icon */}
@@ -83,74 +93,72 @@ export default function Home() {
               Keunggulan
             </a>
             <a 
-              href="#features" 
+              href="#philosophy" 
               onClick={() => setIsMenuOpen(false)}
               className="font-heading text-4xl sm:text-5xl font-bold text-gray-900 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[var(--color-telegram)] hover:to-[var(--color-whatsapp)] transition-all tracking-tight"
             >
-              Fitur
+              Filosofi
             </a>
+            
+            <div className="flex flex-col gap-4 w-full px-10 mt-4">
+              <a 
+                href={`https://t.me/${BOT_USERNAME}`}
+                className="w-full py-4 rounded-2xl bg-[var(--color-telegram)] text-white font-bold text-center shadow-lg shadow-blue-200 flex items-center justify-center gap-2"
+              >
+                Coba di Telegram
+              </a>
+              <a 
+                href="#"
+                className="w-full py-4 rounded-2xl bg-[var(--color-whatsapp)] text-white font-bold text-center shadow-lg shadow-green-200 flex items-center justify-center gap-2"
+              >
+                Coba di WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       )}
 
-      <main>
+      <main className="pt-20">
         {/* Hero Section */}
-        <section className="relative pt-16 pb-24 lg:pt-24 lg:pb-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 2xl:gap-24">
-            
-            {/* Left Content */}
-            <div className="flex-1 text-center lg:text-left z-10 animate-fade-in opacity-0">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-50 border border-gray-200 text-sm font-medium text-gray-700 mb-8">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                Kini hadir di WhatsApp!
+        <section className="relative pt-20 pb-32 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+              
+              {/* Text Side */}
+              <div className="flex-1 text-center lg:text-left z-10 animate-fade-in">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold uppercase tracking-wider mb-6">
+                  ✨ No.1 Sticker Bot Engine
+                </div>
+                <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-8 leading-[1.1]">
+                  Ubah Foto Jadi <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-telegram)] to-[var(--color-whatsapp)]">Stiker</span> Secara Instan.
+                </h1>
+                <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                  Bikin stiker Telegram & WhatsApp semudah kirim pesan. Gratis selamanya, tanpa iklan, dan tanpa simpan data pribadi Anda.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                  <a 
+                    href={`https://t.me/${BOT_USERNAME}`}
+                    className="group relative px-8 py-4 bg-gray-900 text-white rounded-2xl font-bold transition-all hover:scale-105 active:scale-95 shadow-xl shadow-gray-200"
+                  >
+                    Mulai Sekarang
+                  </a>
+                  <a 
+                    href="#performance"
+                    className="px-8 py-4 bg-white text-gray-900 border border-gray-200 rounded-2xl font-bold transition-all hover:bg-gray-50"
+                  >
+                    Pelajari Dulu
+                  </a>
+                </div>
               </div>
-              
-              <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl 2xl:text-8xl font-bold tracking-tight text-gray-900 leading-[1.1] mb-6">
-                Ubah fotomu <br className="hidden sm:block" />
-                jadi stiker <span className="text-gray-400">instan.</span>
-              </h1>
-              
-              <p className="text-lg sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Kirim foto apa saja ke bot Telegram atau WhatsApp kami, dan dapatkan stiker <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm text-gray-800 font-mono">.webp</code> transparan berkualitas tinggi. Sepenuhnya gratis.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <a 
-                  href={`https://t.me/${BOT_USERNAME}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[var(--color-telegram)] hover:bg-[var(--color-telegram-hover)] text-white font-semibold text-lg shadow-sm transition-all hover:-translate-y-0.5 active:translate-y-0"
-                >
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" /></svg>
-                  Bot Telegram
-                </a>
-                <a 
-                  href="https://wa.me/6283190230065?text=.help"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[var(--color-whatsapp)] hover:bg-[var(--color-whatsapp-hover)] text-white font-semibold text-lg shadow-sm transition-all hover:-translate-y-0.5 active:translate-y-0"
-                >
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" /></svg>
-                  Bot WhatsApp
-                </a>
-              </div>
-              <p className="mt-6 text-sm text-gray-500 font-medium">Bergabung dengan 10.000+ pengguna lainnya.</p>
-            </div>
 
-            {/* Right Content: 3D Canvas */}
-            <div className="flex-1 w-full flex justify-center lg:justify-end animate-fade-in delay-200 opacity-0 relative">
-              <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl h-[350px] sm:h-[450px] lg:h-[600px] relative px-4 sm:px-0">
-                <div className="absolute inset-0 bg-gradient-to-tr from-gray-100 to-transparent rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-                {/* 3D Canvas Container - Added lateral padding for mobile touch scroll area */}
-                <div className="w-full h-full relative z-10">
-                   <Boba3D />
-                </div>
-                <div className="absolute bottom-0 sm:bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-600 text-xs px-3 py-1.5 rounded-full shadow-sm pointer-events-none z-20">
-                  Seret untuk memutar
-                </div>
+              {/* 3D Side */}
+              <div className="flex-1 w-full h-[400px] sm:h-[500px] lg:h-[600px] relative animate-fade-in delay-200 opacity-0">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-50/50 to-purple-50/50 rounded-full blur-3xl -z-10"></div>
+                <Boba3D />
               </div>
+
             </div>
-            
           </div>
         </section>
 
@@ -300,7 +308,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
             <span className="text-xl">🧋</span>
-            <span className="font-heading font-bold text-gray-900">BobaSticker</span>
+            <span className="font-heading font-bold text-xl tracking-tight text-gray-900">BobaSticker</span>
           </div>
           <p className="text-sm text-gray-500">
             © {new Date().getFullYear()} BobaSticker. Crafted with precision.
@@ -309,16 +317,15 @@ export default function Home() {
       </footer>
 
       {/* Scroll to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 p-3 rounded-full bg-gray-900 text-white shadow-lg hover:bg-gray-800 transition-all duration-300 z-50 ${
-          showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
-        }`}
-        aria-label="Scroll to top"
-      >
-        <ArrowUp size={20} />
-      </button>
-
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-50 p-4 bg-gray-900 text-white rounded-2xl shadow-2xl hover:scale-110 active:scale-95 transition-all animate-fade-in"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp size={24} />
+        </button>
+      )}
     </div>
   );
 }
