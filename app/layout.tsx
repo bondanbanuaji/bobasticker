@@ -8,10 +8,12 @@ export const metadata: Metadata = {
     "Kirim foto, terima stiker. Bot Telegram & WhatsApp gratis yang mengubah foto kamu jadi stiker .webp 512×512 dalam hitungan detik. Tanpa login, tanpa bayar, selamanya gratis.",
   keywords: ["telegram", "whatsapp", "stiker", "bot", "foto", "webp", "gratis"],
   icons: {
-    icon: "/icon.png",
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
     apple: "/icon.png",
   },
-  themeColor: "#ffffff",
   openGraph: {
     title: "BobaSticker — Foto Jadi Stiker Telegram & WA",
     description: "Kirim foto, terima stiker. Gratis selamanya.",
@@ -27,6 +29,9 @@ export default function RootLayout({
   return (
     <html lang="id" className="h-full antialiased scroll-smooth">
       <head>
+        <link rel="icon" href="/icon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/icon.png" />
+        <meta name="theme-color" content="#ffffff" />
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
