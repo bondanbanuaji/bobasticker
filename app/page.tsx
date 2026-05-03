@@ -81,9 +81,8 @@ export default function Home() {
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-40 flex flex-col items-center justify-center animate-fade-in md:hidden">
-          {/* Aesthetic Background */}
-          <div className="absolute inset-0 bg-white/90 backdrop-blur-2xl"></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-telegram)]/10 via-transparent to-[var(--color-whatsapp)]/10"></div>
+          {/* Opaque Background */}
+          <div className="absolute inset-0 bg-white"></div>
           
           <div className="flex flex-col items-center gap-10 scale-in-center relative z-10">
             <a 
