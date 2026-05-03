@@ -1,4 +1,4 @@
-# Panduan Setup Manual Bot WhatsApp (BobaSticker)
+cd# Panduan Setup Manual Bot WhatsApp (BobaSticker)
 
 Karena WhatsApp tidak memiliki Bot API resmi seperti Telegram, kita menggunakan library **Baileys** untuk menjalankan bot. Ini berarti bot bertindak layaknya "WhatsApp Web" yang sedang login dengan nomor Anda.
 
@@ -36,6 +36,54 @@ Berikut panduan lengkap untuk menjalankan bot di komputer Anda atau server cloud
 7. Test bot Anda! Buka WhatsApp dari nomor lain (atau grup), kirim sebuah gambar dengan caption `.s`.
 
 > **Catatan:** Sesi login akan disimpan secara otomatis di folder `auth_info_baileys/`. Anda tidak perlu scan QR lagi selama tidak logout dari HP.
+
+---
+
+## 1.1. Testing Bot (DM & Grup)
+
+Setelah bot berhasil online (`✅ WhatsApp Bot is online! 🚀`), saatnya test! Ada 2 cara:
+
+### A. Test via DM (Chat Pribadi)
+
+1. Buka WhatsApp dari **nomor lain** (bukan nomor bot).
+2. Chat ke nomor bot (`+62 831-9023-0065`).
+3. Kirim pesan `.help` → bot akan membalas daftar command.
+4. Kirim sebuah **foto/gambar** dengan caption `.s` → bot akan membalas dengan **stiker**!
+5. Atau kirim `.ping` → bot akan membalas `🏓 Pong!` beserta waktu respons.
+
+### B. Test di Grup WhatsApp
+
+1. Buat grup baru atau gunakan grup yang sudah ada.
+2. **Masukkan nomor bot** (`+62 831-9023-0065`) ke dalam grup tersebut.
+3. Sekarang, dari nomor kamu (bukan nomor bot), coba command berikut di dalam grup:
+
+**Cara bikin stiker dari gambar di grup:**
+
+| Cara | Langkah |
+|---|---|
+| **Kirim gambar baru** | Pilih gambar dari galeri → di kolom caption ketik `.s` → kirim |
+| **Reply gambar orang lain** | Tap & hold gambar yang sudah ada di grup → pilih **Reply** → ketik `.s` → kirim |
+
+**Contoh alur di grup:**
+```
+Kamu:  [Kirim gambar kucing] + caption ".s"
+Bot:   [Membalas dengan stiker kucing 512x512] ✅
+
+Teman: [Kirim gambar meme]
+Kamu:  [Reply gambar teman] + ".s"
+Bot:   [Membalas dengan stiker meme] ✅
+
+Kamu:  .ping
+Bot:   🏓 Pong! Speed: 42ms
+
+Kamu:  .help
+Bot:   [Daftar semua command yang tersedia]
+```
+
+> **Tips:**
+> - Semua command harus diawali dengan tanda titik (`.`), contoh: `.s`, `.ping`, `.help`
+> - Bot hanya memproses gambar, bukan video atau GIF.
+> - Bot **tidak menyimpan** gambar kamu — semua diproses di memory dan langsung dibuang.
 
 ---
 
