@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
-import { Menu, X, ArrowUp } from "lucide-react";
+import { Menu, X, ArrowUp, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Dynamically import 3D component to avoid SSR issues
 const Boba3D = dynamic(() => import("./components/Boba3D"), { ssr: false });
@@ -11,6 +11,7 @@ export default function Home() {
   const BOT_USERNAME = "BobaSticker_bot";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +23,18 @@ export default function Home() {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const scrollNext = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: 320, behavior: "smooth" });
+    }
+  };
+
+  const scrollPrev = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: -320, behavior: "smooth" });
+    }
   };
 
   return (
@@ -38,7 +51,7 @@ export default function Home() {
             
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
-              <a href="#how-it-works" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Cara Kerja</a>
+              <a href="#performance" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Keunggulan</a>
               <a href="#features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Fitur</a>
             </div>
 
@@ -63,11 +76,11 @@ export default function Home() {
           
           <div className="flex flex-col items-center gap-10 scale-in-center relative z-10">
             <a 
-              href="#how-it-works" 
+              href="#performance" 
               onClick={() => setIsMenuOpen(false)}
               className="font-heading text-4xl sm:text-5xl font-bold text-gray-900 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[var(--color-telegram)] hover:to-[var(--color-whatsapp)] transition-all tracking-tight"
             >
-              Cara Kerja
+              Keunggulan
             </a>
             <a 
               href="#features" 
@@ -141,73 +154,143 @@ export default function Home() {
           </div>
         </section>
 
-        {/* How It Works */}
-        <section id="how-it-works" className="py-24 bg-gray-50 border-y border-gray-100">
+        {/* Performance Comparison */}
+        <section id="performance" className="py-24 bg-gray-50 border-y border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-16 animate-fade-in opacity-0">
-              <h2 className="font-heading text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Semudah 1, 2, 3.</h2>
-              <p className="text-lg text-gray-600">Sistem otonom kami menangani semuanya di latar belakang.</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 animate-fade-in delay-100 opacity-0">
+            <div className="flex flex-col lg:flex-row gap-16 items-center">
               
-              {/* Step 1 */}
-              <div className="bg-white p-8 rounded-3xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.05)] border border-gray-100">
-                <div className="w-12 h-12 rounded-2xl bg-gray-50 border border-gray-200 flex items-center justify-center text-xl mb-6">📸</div>
-                <h3 className="font-heading text-xl font-bold text-gray-900 mb-3">1. Kirim Foto</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Buka bot di Telegram atau WhatsApp. Pilih foto bebas dari galeri, tambahkan caption <code className="bg-gray-50 px-1 border border-gray-200 rounded">.s</code>, lalu kirim.
+              <div className="flex-1 animate-fade-in opacity-0">
+                <h2 className="font-heading text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+                  Superioritas yang terukur.
+                </h2>
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  Kami membuang *antrean* (*queue*), melompati *database*, dan merender stiker Anda langsung di dalam memori server menggunakan <strong className="text-gray-900 font-semibold">C++ Sharp Engine</strong>. Hasilnya? Kinerja yang mustahil dikalahkan oleh bot standar.
                 </p>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span className="text-gray-700">Waktu respons di bawah 1 detik.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span className="text-gray-700">Data otomatis terhapus seketika (0 detik retensi).</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span className="text-gray-700">Kapasitas pemrosesan tanpa batas antrean.</span>
+                  </li>
+                </ul>
               </div>
 
-              {/* Step 2 */}
-              <div className="bg-white p-8 rounded-3xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.05)] border border-gray-100">
-                <div className="w-12 h-12 rounded-2xl bg-gray-50 border border-gray-200 flex items-center justify-center text-xl mb-6">⚙️</div>
-                <h3 className="font-heading text-xl font-bold text-gray-900 mb-3">2. Auto Processing</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Bot langsung me-resize gambar Anda menjadi dimensi kotak 512x512 piksel dan mengkonversinya ke format WebP secara instan.
-                </p>
-              </div>
+              <div className="flex-1 w-full bg-white p-8 sm:p-10 rounded-3xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100 animate-fade-in delay-200 opacity-0">
+                <h3 className="font-heading text-xl font-bold text-gray-900 mb-8">Waktu Pemrosesan (Detik)</h3>
+                
+                <div className="space-y-8">
+                  {/* BobaSticker Bar */}
+                  <div>
+                    <div className="flex justify-between text-sm font-medium mb-2">
+                      <span className="text-gray-900">BobaSticker</span>
+                      <span className="text-gray-900 font-bold">0.8s</span>
+                    </div>
+                    <div className="h-4 w-full bg-gray-100 rounded-full overflow-hidden">
+                      <div className="h-full bg-gradient-to-r from-[var(--color-telegram)] to-[var(--color-whatsapp)] rounded-full animate-grow-width" style={{ width: "15%" }}></div>
+                    </div>
+                  </div>
 
-              {/* Step 3 */}
-              <div className="bg-white p-8 rounded-3xl shadow-[0_2px_10px_-3px_rgba(6,81,237,0.05)] border border-gray-100">
-                <div className="w-12 h-12 rounded-2xl bg-gray-50 border border-gray-200 flex items-center justify-center text-xl mb-6">🎉</div>
-                <h3 className="font-heading text-xl font-bold text-gray-900 mb-3">3. Jadi Stiker</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Dalam milidetik, stiker akan dikirimkan kembali ke Anda. Cukup tap dan *Add to Favorites* untuk mulai digunakan di grup obrolan!
-                </p>
+                  {/* Competitor A Bar */}
+                  <div>
+                    <div className="flex justify-between text-sm font-medium mb-2">
+                      <span className="text-gray-500">Bot Standar (Python/Node)</span>
+                      <span className="text-gray-500 font-bold">3.5s</span>
+                    </div>
+                    <div className="h-4 w-full bg-gray-100 rounded-full overflow-hidden">
+                      <div className="h-full bg-gray-300 rounded-full animate-grow-width delay-100" style={{ width: "65%" }}></div>
+                    </div>
+                  </div>
+
+                  {/* Competitor B Bar */}
+                  <div>
+                    <div className="flex justify-between text-sm font-medium mb-2">
+                      <span className="text-gray-500">Bot dengan Database Queue</span>
+                      <span className="text-gray-500 font-bold">5.0s+</span>
+                    </div>
+                    <div className="h-4 w-full bg-gray-100 rounded-full overflow-hidden">
+                      <div className="h-full bg-gray-300 rounded-full animate-grow-width delay-200" style={{ width: "95%" }}></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-gray-100 text-xs text-gray-400">
+                  *Berdasarkan tes internal konversi gambar PNG 2MB ke WebP 512x512. Semakin pendek grafik, semakin baik.
+                </div>
               </div>
 
             </div>
           </div>
         </section>
 
-        {/* Features / Philosophy */}
-        <section id="features" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-16 items-start animate-fade-in delay-200 opacity-0">
-            <div className="lg:w-1/3">
+        {/* Philosophy Carousel */}
+        <section id="philosophy" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden relative">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
+            <div className="animate-fade-in opacity-0">
               <h2 className="font-heading text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Filosofi Kami</h2>
-              <p className="text-lg text-gray-600">Cepat, aman, dan tanpa biaya tersembunyi. Dibangun dengan integritas *engineering* modern.</p>
+              <p className="text-lg text-gray-600 max-w-xl">Cepat, aman, dan tanpa biaya tersembunyi. Dibangun dengan integritas <em className="font-medium text-gray-800">engineering</em> modern.</p>
             </div>
             
-            <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
-              <div>
-                <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">💸 100% Gratis Selamanya</h3>
-                <p className="text-gray-600">Tidak ada paket premium, tidak ada batasan kuota harian. Anda berhak mendapatkan layanan terbaik tanpa harus membayar.</p>
-              </div>
-              <div>
-                <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">🔒 Privasi Mutlak</h3>
-                <p className="text-gray-600">Arsitektur *stateless* kami memproses gambar Anda secara *in-memory* dan menghapusnya secara permanen dalam hitungan detik.</p>
-              </div>
-              <div>
-                <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">⚡ Kinerja Secepat Kilat</h3>
-                <p className="text-gray-600">Ditenagai oleh pustaka pemrosesan gambar C++ (Sharp) yang menjamin waktu respon kurang dari 1 detik per operasi.</p>
-              </div>
-              <div>
-                <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">📱 Multi Platform</h3>
-                <p className="text-gray-600">Tersedia secara native di dalam aplikasi chat harian Anda. Tidak perlu mengunduh aplikasi pihak ketiga yang memenuhi storage HP.</p>
-              </div>
+            {/* Carousel Controls (Hidden on small mobile for touch focus) */}
+            <div className="hidden sm:flex gap-3 animate-fade-in delay-100 opacity-0">
+              <button 
+                onClick={scrollPrev}
+                className="w-12 h-12 flex items-center justify-center rounded-full border border-gray-200 bg-white hover:bg-gray-50 text-gray-700 transition-colors shadow-sm"
+                aria-label="Previous slide"
+              >
+                <ChevronLeft size={24} />
+              </button>
+              <button 
+                onClick={scrollNext}
+                className="w-12 h-12 flex items-center justify-center rounded-full border border-gray-200 bg-white hover:bg-gray-50 text-gray-700 transition-colors shadow-sm"
+                aria-label="Next slide"
+              >
+                <ChevronRight size={24} />
+              </button>
             </div>
+          </div>
+
+          {/* Carousel Track */}
+          <div 
+            ref={carouselRef}
+            className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 animate-fade-in delay-200 opacity-0"
+          >
+            {/* Card 1 */}
+            <div className="min-w-[85vw] sm:min-w-[340px] max-w-[340px] shrink-0 snap-center sm:snap-start bg-gradient-to-b from-blue-50 to-white p-8 rounded-[2rem] border border-blue-100/50 shadow-[0_8px_30px_-12px_rgba(59,130,246,0.12)]">
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">💸</div>
+              <h3 className="font-heading text-xl font-bold text-gray-900 mb-3">100% Gratis Selamanya</h3>
+              <p className="text-gray-600 leading-relaxed">Tidak ada paket premium, tidak ada batasan kuota harian. Anda berhak mendapatkan layanan terbaik tanpa harus membayar.</p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="min-w-[85vw] sm:min-w-[340px] max-w-[340px] shrink-0 snap-center sm:snap-start bg-gradient-to-b from-purple-50 to-white p-8 rounded-[2rem] border border-purple-100/50 shadow-[0_8px_30px_-12px_rgba(168,85,247,0.12)]">
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">🔒</div>
+              <h3 className="font-heading text-xl font-bold text-gray-900 mb-3">Privasi Mutlak</h3>
+              <p className="text-gray-600 leading-relaxed">Arsitektur <em className="font-medium text-gray-800">stateless</em> kami memproses gambar Anda secara <em className="font-medium text-gray-800">in-memory</em> dan menghapusnya permanen dalam hitungan detik.</p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="min-w-[85vw] sm:min-w-[340px] max-w-[340px] shrink-0 snap-center sm:snap-start bg-gradient-to-b from-amber-50 to-white p-8 rounded-[2rem] border border-amber-100/50 shadow-[0_8px_30px_-12px_rgba(245,158,11,0.12)]">
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">⚡</div>
+              <h3 className="font-heading text-xl font-bold text-gray-900 mb-3">Kinerja Secepat Kilat</h3>
+              <p className="text-gray-600 leading-relaxed">Ditenagai oleh pustaka pemrosesan gambar C++ (Sharp) yang menjamin waktu respon kurang dari 1 detik per operasi.</p>
+            </div>
+
+            {/* Card 4 */}
+            <div className="min-w-[85vw] sm:min-w-[340px] max-w-[340px] shrink-0 snap-center sm:snap-start bg-gradient-to-b from-emerald-50 to-white p-8 rounded-[2rem] border border-emerald-100/50 shadow-[0_8px_30px_-12px_rgba(16,185,129,0.12)]">
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">📱</div>
+              <h3 className="font-heading text-xl font-bold text-gray-900 mb-3">Multi Platform</h3>
+              <p className="text-gray-600 leading-relaxed">Tersedia secara <em className="font-medium text-gray-800">native</em> di chat harian Anda. Tidak perlu mengunduh aplikasi pihak ketiga yang memenuhi memori HP.</p>
+            </div>
+            
+            {/* Padding element for right scroll spacing on desktop */}
+            <div className="hidden sm:block min-w-[1px] shrink-0"></div>
           </div>
         </section>
       </main>

@@ -32,6 +32,11 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 1; transform: scale(1); }
 }
 
+@keyframes growWidth {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -40,6 +45,20 @@ h1, h2, h3, h4, h5, h6 {
   animation: scaleInCenter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+.animate-grow-width {
+  transform-origin: left;
+  animation: growWidth 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }
+
+/* Utilities */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
