@@ -52,7 +52,7 @@ export default function Home() {
     <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden selection:bg-gray-200">
       
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+      <nav className="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
             <div className="flex items-center gap-2">
@@ -100,21 +100,6 @@ export default function Home() {
             >
               Filosofi
             </a>
-            
-            <div className="flex flex-col gap-4 w-full px-10 mt-4">
-              <a 
-                href={`https://t.me/${BOT_USERNAME}`}
-                className="w-full py-4 rounded-2xl bg-[var(--color-telegram)] text-white font-bold text-center shadow-lg shadow-blue-200 flex items-center justify-center gap-2"
-              >
-                Coba di Telegram
-              </a>
-              <a 
-                href={`https://wa.me/${WA_NUMBER}`}
-                className="w-full py-4 rounded-2xl bg-[var(--color-whatsapp)] text-white font-bold text-center shadow-lg shadow-green-200 flex items-center justify-center gap-2"
-              >
-                Coba di WhatsApp
-              </a>
-            </div>
           </div>
         </div>
       )}
