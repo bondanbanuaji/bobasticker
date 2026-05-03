@@ -56,38 +56,26 @@ export default function Home() {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center animate-fade-in md:hidden">
-          <div className="flex flex-col items-center gap-8 scale-in-center">
+        <div className="fixed inset-0 z-40 flex flex-col items-center justify-center animate-fade-in md:hidden">
+          {/* Aesthetic Background */}
+          <div className="absolute inset-0 bg-white/90 backdrop-blur-2xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-telegram)]/10 via-transparent to-[var(--color-whatsapp)]/10"></div>
+          
+          <div className="flex flex-col items-center gap-10 scale-in-center relative z-10">
             <a 
               href="#how-it-works" 
               onClick={() => setIsMenuOpen(false)}
-              className="font-heading text-3xl font-bold text-gray-900 hover:text-[var(--color-telegram)] transition-colors"
+              className="font-heading text-4xl sm:text-5xl font-bold text-gray-900 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[var(--color-telegram)] hover:to-[var(--color-whatsapp)] transition-all tracking-tight"
             >
               Cara Kerja
             </a>
             <a 
               href="#features" 
               onClick={() => setIsMenuOpen(false)}
-              className="font-heading text-3xl font-bold text-gray-900 hover:text-[var(--color-telegram)] transition-colors"
+              className="font-heading text-4xl sm:text-5xl font-bold text-gray-900 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[var(--color-telegram)] hover:to-[var(--color-whatsapp)] transition-all tracking-tight"
             >
               Fitur
             </a>
-            <div className="mt-8 pt-8 border-t border-gray-200 flex flex-col gap-4">
-              <a 
-                href={`https://t.me/${BOT_USERNAME}`}
-                onClick={() => setIsMenuOpen(false)}
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-telegram)] text-white font-semibold"
-              >
-                Coba di Telegram
-              </a>
-              <a 
-                href="https://wa.me/6283190230065?text=.help"
-                onClick={() => setIsMenuOpen(false)}
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-whatsapp)] text-white font-semibold"
-              >
-                Coba di WhatsApp
-              </a>
-            </div>
           </div>
         </div>
       )}
