@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "BobaSticker — Foto Jadi Stiker Telegram & WA Instan",
   description:
     "Kirim foto, terima stiker. Bot Telegram & WhatsApp gratis yang mengubah foto kamu jadi stiker .webp 512×512 dalam hitungan detik. Tanpa login, tanpa bayar, selamanya gratis.",
-  keywords: ["telegram", "whatsapp", "stiker", "bot", "foto", "webp", "gratis"],
+  keywords: ["telegram", "whatsapp", "stiker", "bot", "foto", "webp", "gratis", "boba sticker", "sticker bot engine"],
   icons: {
     icon: [
       { url: "/icon.png", type: "image/png" },
@@ -14,10 +14,26 @@ export const metadata: Metadata = {
     ],
     apple: "/icon.png",
   },
+  verification: {
+    google: "PmEGbJJC6OvnZ2rxFdJdsPEGMMdbvWm-daSfYxs3IsI",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     title: "BobaSticker — Foto Jadi Stiker Telegram & WA",
-    description: "Kirim foto, terima stiker. Gratis selamanya.",
+    description: "Kirim foto, terima stiker. Gratis selamanya tanpa iklan.",
     type: "website",
+    url: "https://bobasticker.vercel.app", // Adjust if domain is different
+    siteName: "BobaSticker",
   },
 };
 
