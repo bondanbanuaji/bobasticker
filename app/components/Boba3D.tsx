@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Float, ContactShadows, Environment } from "@react-three/drei";
 import * as THREE from "three";
@@ -78,21 +78,33 @@ function BobaCup() {
   );
 }
 
+function Loader() {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="w-8 h-8 border-4 border-gray-200 border-t-[var(--color-telegram)] rounded-full animate-spin"></div>
+    </div>
+  );
+}
+
 export default function Boba3D() {
   return (
-    <div className="w-full h-[500px] cursor-pointer">
-      <Canvas camera={{ position: [0, 2, 8], fov: 45 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        
-        <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-          <BobaCup />
-        </Float>
-        
-        <Environment preset="city" />
-        <ContactShadows position={[0, -3.5, 0]} opacity={0.4} scale={10} blur={2} far={4} />
-        <OrbitControls enableZoom={false} autoRotate={false} />
-      </Canvas>
+    // Padding x (px-8) gives space on mobile to scroll without touching the canvas
+    <div className="w-full h-full cursor-pointer relative px-8 sm:px-0">
+      <Suspense fallback={<Loader />}>
+        <Canvas camera={{ position: [0, 2, 8], fov: 45 }} className="w-full h-full">
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[10, 10, 5]} intensity={1} />
+          
+          <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
+            <BobaCup />
+          </Float>
+          
+          <Environment preset="city" />
+          <ContactShadows position={[0, -3.5, 0]} opacity={0.4} scale={10} blur={2} far={4} />
+          {/* Disable zoom and pan to prevent mobile users getting stuck */}
+          <OrbitControls enableZoom={false} enablePan={false} />
+        </Canvas>
+      </Suspense>
     </div>
   );
 }

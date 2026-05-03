@@ -1,12 +1,28 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import { Menu, X, ArrowUp } from "lucide-react";
 
 // Dynamically import 3D component to avoid SSR issues
 const Boba3D = dynamic(() => import("./components/Boba3D"), { ssr: false });
 
 export default function Home() {
   const BOT_USERNAME = "BobaSticker_bot";
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden selection:bg-gray-200">
@@ -15,17 +31,66 @@ export default function Home() {
       <nav className="w-full border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 z-50">
               <span className="text-2xl">🧋</span>
               <span className="font-heading font-bold text-xl tracking-tight text-gray-900">BobaSticker</span>
             </div>
+            
+            {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               <a href="#how-it-works" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Cara Kerja</a>
               <a href="#features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Fitur</a>
             </div>
+
+            {/* Mobile Burger Icon */}
+            <button 
+              className="md:hidden z-50 p-2 text-gray-600 hover:text-gray-900"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center animate-fade-in md:hidden">
+          <div className="flex flex-col items-center gap-8 scale-in-center">
+            <a 
+              href="#how-it-works" 
+              onClick={() => setIsMenuOpen(false)}
+              className="font-heading text-3xl font-bold text-gray-900 hover:text-[var(--color-telegram)] transition-colors"
+            >
+              Cara Kerja
+            </a>
+            <a 
+              href="#features" 
+              onClick={() => setIsMenuOpen(false)}
+              className="font-heading text-3xl font-bold text-gray-900 hover:text-[var(--color-telegram)] transition-colors"
+            >
+              Fitur
+            </a>
+            <div className="mt-8 pt-8 border-t border-gray-200 flex flex-col gap-4">
+              <a 
+                href={`https://t.me/${BOT_USERNAME}`}
+                onClick={() => setIsMenuOpen(false)}
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-telegram)] text-white font-semibold"
+              >
+                Coba di Telegram
+              </a>
+              <a 
+                href="https://wa.me/6283190230065?text=.help"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-whatsapp)] text-white font-semibold"
+              >
+                Coba di WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       <main>
         {/* Hero Section */}
@@ -73,10 +138,13 @@ export default function Home() {
 
             {/* Right Content: 3D Canvas */}
             <div className="flex-1 w-full flex justify-center lg:justify-end animate-fade-in delay-200 opacity-0 relative">
-              <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl h-[350px] sm:h-[450px] lg:h-[600px] relative">
-                <div className="absolute inset-0 bg-gradient-to-tr from-gray-100 to-transparent rounded-full blur-3xl opacity-50"></div>
-                <Boba3D />
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-600 text-xs px-3 py-1.5 rounded-full shadow-sm pointer-events-none">
+              <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl h-[350px] sm:h-[450px] lg:h-[600px] relative px-4 sm:px-0">
+                <div className="absolute inset-0 bg-gradient-to-tr from-gray-100 to-transparent rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+                {/* 3D Canvas Container - Added lateral padding for mobile touch scroll area */}
+                <div className="w-full h-full relative z-10">
+                   <Boba3D />
+                </div>
+                <div className="absolute bottom-0 sm:bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-600 text-xs px-3 py-1.5 rounded-full shadow-sm pointer-events-none z-20">
                   Seret untuk memutar
                 </div>
               </div>
@@ -168,6 +236,18 @@ export default function Home() {
           </p>
         </div>
       </footer>
+
+      {/* Scroll to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-6 right-6 p-3 rounded-full bg-gray-900 text-white shadow-lg hover:bg-gray-800 transition-all duration-300 z-50 ${
+          showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+        }`}
+        aria-label="Scroll to top"
+      >
+        <ArrowUp size={20} />
+      </button>
+
     </div>
   );
 }
