@@ -41,7 +41,7 @@ export async function downloadFile(filePath: string): Promise<Buffer> {
 export async function sendSticker(
   chatId: number | string,
   webpBuffer: Buffer
-): Promise<void> {
+): Promise<any> {
   const form = new FormData();
   form.append("chat_id", String(chatId));
   form.append(
@@ -59,6 +59,8 @@ export async function sendSticker(
   if (!data.ok) {
     throw new Error(`sendSticker failed: ${JSON.stringify(data)}`);
   }
+
+  return data.result;
 }
 
 /**
@@ -75,5 +77,30 @@ export async function sendMessage(
   const data = await res.json();
   if (!data.ok) {
     throw new Error(`sendMessage failed: ${JSON.stringify(data)}`);
+  }
+}
+
+/**
+ * React to a message with an emoji.
+ */
+export async function setMessageReaction(
+  chatId: number | string,
+  messageId: number,
+  emoji: string
+): Promise<void> {
+  const res = await fetch(`${API_BASE}/setMessageReaction`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      chat_id: String(chatId),
+      message_id: messageId,
+      reaction: [{ type: "emoji", emoji }],
+    }),
+  });
+
+  const data = await res.json();
+  // Don't throw on reaction failure, just log it as it's non-critical
+  if (!data.ok) {
+    console.warn(`setMessageReaction failed: ${JSON.stringify(data)}`);
   }
 }
