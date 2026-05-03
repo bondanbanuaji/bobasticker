@@ -124,6 +124,13 @@ async function startBot() {
 
     log(TAG.CMD, `\x1b[1m.${command}\x1b[0m`, `dari: ${from} | tipe: ${msgType}`);
 
+    // Maintenance Mode Check
+    if (process.env.MAINTENANCE_MODE === 'true') {
+      await sock.sendMessage(msg.key.remoteJid, { text: 'maaf, kita lagi maintenance sebentar. coba lagi nanti ya ^_^' }, { quoted: msg });
+      log(TAG.WARN, `Maintenance Mode Aktif | Mengabaikan command .${command} dari: ${from}`);
+      return;
+    }
+
     try {
       switch (command) {
         case 's':

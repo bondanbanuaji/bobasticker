@@ -42,6 +42,12 @@ export async function POST(request: NextRequest) {
     const chatId = message.chat.id;
     const messageId = message.message_id;
 
+    // Maintenance Mode Check
+    if (process.env.MAINTENANCE_MODE === 'true') {
+        await sendMessage(chatId, "maaf, kita lagi maintenance sebentar. coba lagi nanti ya ^_^");
+        return new Response("OK", { status: 200 });
+    }
+
     // Handle Commands
     const text = message.text || message.caption || "";
     const lowerText = text.toLowerCase().trim();
