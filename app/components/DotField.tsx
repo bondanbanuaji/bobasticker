@@ -146,7 +146,7 @@ const DotField = memo(({
       const len = dots.length;
       const t = frameCount * 0.02;
 
-      const targetEngagement = Math.min(m.speed / 5, 1);
+      const targetEngagement = Math.min(m.speed / 2, 1.5);
       engagement.current += (targetEngagement - engagement.current) * 0.06;
       if (engagement.current < 0.001) engagement.current = 0;
       const eng = engagement.current;

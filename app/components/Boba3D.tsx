@@ -14,9 +14,9 @@ function BobaCup() {
     const handleResize = () => {
       const w = window.innerWidth;
       if (w < 480) {
-        setScaleFactor(1.6); // Very large on small phones
+        setScaleFactor(1.1); // Adjusted for mobile
       } else if (w < 768) {
-        setScaleFactor(1.4); // Large on tablets/large phones
+        setScaleFactor(1.0); // Adjusted for tablet
       } else if (w < 1280) {
         setScaleFactor(0.9); // Normal on laptops
       } else if (w < 1920) {
@@ -129,9 +129,9 @@ function Loader() {
 
 export default function Boba3D() {
   return (
-    <div className="w-full h-full cursor-pointer relative px-8 sm:px-0">
+    <div className="w-full h-full cursor-pointer relative px-0">
       <Suspense fallback={<Loader />}>
-        <Canvas camera={{ position: [0, 2, 8], fov: 45 }} className="w-full h-full">
+        <Canvas camera={{ position: [0, 2, 10], fov: 45 }} className="w-full h-full">
           <ambientLight intensity={0.6} />
           <directionalLight position={[10, 10, 5]} intensity={1.2} />
           <pointLight position={[-10, -10, -10]} intensity={0.5} />

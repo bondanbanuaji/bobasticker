@@ -8,6 +8,9 @@
 import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { Menu, X, ArrowUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import BorderGlow from "./components/BorderGlow";
 
 // Dynamically import 3D component to avoid SSR issues
 const Boba3D = dynamic(() => import("./components/Boba3D"), { ssr: false });
@@ -36,16 +39,30 @@ export default function Home() {
   };
 
   const scrollNext = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 320, behavior: "smooth" });
-    }
+    setCarouselIndex((prev) => (prev + 1) % 4);
   };
 
   const scrollPrev = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -320, behavior: "smooth" });
-    }
+    setCarouselIndex((prev) => (prev - 1 + 4) % 4);
   };
+
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [centerPercentage, setCenterPercentage] = useState(33.33);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setCenterPercentage(85);
+      } else if (window.innerWidth < 1024) {
+        setCenterPercentage(45);
+      } else {
+        setCenterPercentage(33.33);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="bg-transparent text-gray-900 selection:bg-gray-200 relative pb-10">
@@ -53,9 +70,9 @@ export default function Home() {
         <DotField 
           dotRadius={2}
           dotSpacing={20}
-          bulgeStrength={23}
-          cursorForce={0.33}
-          glowRadius={40}
+          bulgeStrength={120}
+          cursorForce={1.2}
+          glowRadius={100}
         />
       </div>
       
@@ -64,26 +81,26 @@ export default function Home() {
         isMenuOpen ? 'bg-transparent border-transparent' : 
         isScrolled ? 'bg-white border-b border-gray-100 shadow-sm' : 'bg-transparent border-transparent'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto pl-6 pr-14 sm:px-12 relative z-10">
           <div className="flex justify-between h-24 items-center">
-            <div className="flex items-center gap-2 relative z-[60] mt-4">
+            <div className="flex items-center gap-2 relative z-[60]">
               <span className="font-heading font-black text-2xl sm:text-3xl tracking-tighter text-gray-900 uppercase">BobaSticker</span>
             </div>
             
             {/* Desktop Menu */}
-            <div className={`hidden md:flex space-x-8 transition-opacity duration-500 mt-4 ${isMenuOpen ? 'opacity-0' : ''}`}>
+            <div className={`hidden md:flex space-x-8 transition-opacity duration-500 ${isMenuOpen ? 'opacity-0' : ''}`}>
               <a href="#performance" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Tentang Kami</a>
               <a href="#philosophy" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Filosofi</a>
             </div>
 
             {/* Mobile Burger Icon (Sleek Morphing Animation) */}
             <button 
-              className="md:hidden z-[60] relative w-12 h-12 flex justify-center items-center mt-4"
+              className="md:hidden z-[60] relative w-12 h-12 flex justify-center items-center"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
               <span className={`absolute w-10 h-[1px] bg-gray-900 transition-all duration-300 ease-out ${isMenuOpen ? 'rotate-45' : '-translate-y-3'}`} />
-              <span className={`absolute w-10 h-[1px] bg-gray-900 transition-all duration-300 ease-out ${isMenuOpen ? 'opacity-0' : ''}`} />
+              <span className={`absolute w-10 h-[1px] bg-gray-900 transition-all duration-300 ease-out ${isMenuOpen ? 'opacity-0 translate-x-4' : 'opacity-100 translate-x-0'}`} />
               <span className={`absolute w-10 h-[1px] bg-gray-900 transition-all duration-300 ease-out ${isMenuOpen ? '-rotate-45' : 'translate-y-3'}`} />
             </button>
           </div>
@@ -116,7 +133,7 @@ export default function Home() {
 
       <main className="pt-24">
         {/* Hero Section */}
-        <section className="relative pt-20 pb-32 overflow-hidden">
+        <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-32 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
               
@@ -125,12 +142,12 @@ export default function Home() {
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold uppercase tracking-wider mb-6">
                   Stiker Paling Satset No 1. Di Wakanda
                 </div>
-                <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl 2xl:text-8xl font-bold tracking-tight text-gray-900 mb-8 leading-[1.1]">
-                  Sulap Foto Jadi <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-telegram)] to-[var(--color-whatsapp)] text-5xl sm:text-7xl lg:text-8xl xl:text-[120px] 2xl:text-[150px]">Stiker</span> 
+                <h1 className="font-heading text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-gray-900 mb-8 leading-[1.1]">
+                  Sulap Foto Jadi <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-telegram)] to-[var(--color-whatsapp)] text-5xl sm:text-7xl lg:text-7xl xl:text-8xl 2xl:text-[110px]">Stiker</span> 
                   <br />Satset Tanpa Nunggu Lama!
                 </h1>
                 <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                  Bikin stiker sesimpel lo nge-chat dia. Semuanya gratis tanpa pamrih, bebas iklan yang ganggu, dan privasi lo dijaga lebih rapat dari rahasia hati.
+                  Bikin stiker sesimpel lo nge-chat doi. Semuanya gratis tanpa pamrih, bebas iklan yang ganggu, dan privasi lo dijaga lebih rapat dari rahasia hati.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
@@ -152,7 +169,7 @@ export default function Home() {
               </div>
 
               {/* 3D Side */}
-              <div className="flex-1 w-full h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px] relative animate-fade-in delay-200 opacity-0">
+              <div className="flex-1 w-full h-[450px] sm:h-[550px] lg:h-[600px] xl:h-[700px] relative animate-fade-in delay-200 opacity-0">
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-50/50 to-purple-50/50 rounded-full blur-3xl -z-10"></div>
                 <Boba3D />
               </div>
@@ -171,7 +188,7 @@ export default function Home() {
                   Bukan Sekadar Janji Manis Kayak Mantan.
                 </h2>
                 <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed lg:max-w-2xl">
-                  Kita buang jauh-jauh yang namanya antrean. Gambar lo langsung diproses pake <strong className="text-gray-900 font-semibold">sihir teknologi</strong> tanpa mampir ke database. Hasilnya? Stiker lo kelar sebelum lo sempet galauin dia.
+                  Kita buang jauh-jauh yang namanya antrean. Gambar lo langsung diproses pake <strong className="text-gray-900 font-semibold">sihir teknologi</strong> tanpa mampir ke database. Hasilnya? Stiker lo kelar sebelum lo sempet galauin doi.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
@@ -180,7 +197,7 @@ export default function Home() {
                   </li>
                   <li className="flex items-start gap-3">
                     <svg className="w-6 h-6 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                    <span className="text-gray-700">Jejak lo langsung musnah secepat dia ngilang. Privasi lo aman.</span>
+                    <span className="text-gray-700">Jejak lo langsung musnah secepat doi ngilang. Privasi lo aman.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <svg className="w-6 h-6 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
@@ -189,7 +206,14 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="flex-1 w-full bg-white/80 backdrop-blur-md p-8 sm:p-10 rounded-3xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100 animate-fade-in delay-200 opacity-0">
+              <BorderGlow 
+                className="flex-1 w-full p-8 sm:p-10 animate-fade-in delay-200 opacity-0"
+                backgroundColor="rgba(255, 255, 255, 0.8)"
+                borderRadius={24}
+                glowColor="200 80 80"
+                colors={['#3b82f6', '#22c55e', '#a855f7']}
+                animated={true}
+              >
                 <h3 className="font-heading text-xl font-bold text-gray-900 mb-8">Adu Mekanik Kecepatan (Detik)</h3>
                 
                 <div className="space-y-8">
@@ -230,7 +254,7 @@ export default function Home() {
                 <div className="mt-8 pt-6 border-t border-gray-100 text-xs text-gray-400">
                   *Intinya, makin pendek bar-nya, makin ngebut kita proses gambar lo.
                 </div>
-              </div>
+              </BorderGlow>
 
             </div>
           </div>
@@ -265,39 +289,55 @@ export default function Home() {
           </div>
 
           {/* Carousel Track */}
-          <div 
-            ref={carouselRef}
-            className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 animate-fade-in delay-200 opacity-0"
-          >
-            {/* Card 1 */}
-            <div className="min-w-[85vw] sm:min-w-[340px] xl:min-w-[400px] shrink-0 snap-center sm:snap-start bg-gradient-to-br from-blue-100 to-blue-50/50 p-8 xl:p-10 rounded-[2rem] border border-blue-200 shadow-[0_8px_30px_-12px_rgba(59,130,246,0.25)]">
-              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">💸</div>
-              <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Gratis, Seikhlas Hati Ini</h3>
-              <p className="text-gray-600 lg:text-lg leading-relaxed">Gak ada tuh embel-embel premium. Lo berhak dapet yang terbaik tanpa harus ngeluarin duit, karena bahagia lo itu tujuan kita.</p>
-            </div>
+          <div className="animate-fade-in delay-200 opacity-0 px-4 sm:px-0">
+            <Carousel
+              selectedItem={carouselIndex}
+              onChange={(index) => setCarouselIndex(index)}
+              showArrows={false}
+              showStatus={false}
+              showThumbs={false}
+              infiniteLoop={true}
+              emulateTouch={true}
+              centerMode={true}
+              centerSlidePercentage={centerPercentage}
+              renderIndicator={() => null}
+            >
+              {/* Card 1 */}
+              <div className="px-3">
+                <div className="aspect-square bg-gradient-to-br from-blue-100 to-blue-50/50 p-6 lg:p-8 rounded-[2rem] border border-blue-200 shadow-[0_8px_30px_-12px_rgba(59,130,246,0.25)] flex flex-col justify-center text-left h-full">
+                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">💸</div>
+                  <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Gratis, Seikhlas Hati Ini</h3>
+                  <p className="text-gray-600 lg:text-lg leading-relaxed">Gak ada tuh embel-embel premium. Lo berhak dapet yang terbaik tanpa harus ngeluarin duit, karena bahagia lo itu tujuan kita.</p>
+                </div>
+              </div>
 
-            {/* Card 2 */}
-            <div className="min-w-[85vw] sm:min-w-[340px] xl:min-w-[400px] shrink-0 snap-center sm:snap-start bg-gradient-to-br from-purple-100 to-purple-50/50 p-8 xl:p-10 rounded-[2rem] border border-purple-200 shadow-[0_8px_30px_-12px_rgba(168,85,247,0.25)]">
-              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">🔒</div>
-              <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Rahasia Lo, Nyawa Kita</h3>
-              <p className="text-gray-600 lg:text-lg leading-relaxed">Foto aib lo cuma mampir sekejap buat diproses, abis itu langsung kita hapus tanpa sisa. Kita penjaga rahasia yang paling setia.</p>
-            </div>
+              {/* Card 2 */}
+              <div className="px-3">
+                <div className="aspect-square bg-gradient-to-br from-purple-100 to-purple-50/50 p-6 lg:p-8 rounded-[2rem] border border-purple-200 shadow-[0_8px_30px_-12px_rgba(168,85,247,0.25)] flex flex-col justify-center text-left h-full">
+                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">🔒</div>
+                  <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Rahasia Lo, Nyawa Kita</h3>
+                  <p className="text-gray-600 lg:text-lg leading-relaxed">Foto aib lo cuma mampir sekejap buat diproses, abis itu langsung kita hapus tanpa sisa. Kita penjaga rahasia yang paling setia.</p>
+                </div>
+              </div>
 
-            {/* Card 3 */}
-            <div className="min-w-[85vw] sm:min-w-[340px] xl:min-w-[400px] shrink-0 snap-center sm:snap-start bg-gradient-to-br from-amber-100 to-amber-50/50 p-8 xl:p-10 rounded-[2rem] border border-amber-200 shadow-[0_8px_30px_-12px_rgba(245,158,11,0.25)]">
-              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">⚡</div>
-              <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Ngebut Tanpa Rem</h3>
-              <p className="text-gray-600 lg:text-lg leading-relaxed">Kita pake mesin canggih biar lo gak perlu nunggu lama. Kurang dari sedetik, stiker lo langsung jadi dan siap dikirim ke tongkrongan.</p>
-            </div>
+              {/* Card 3 */}
+              <div className="px-3">
+                <div className="aspect-square bg-gradient-to-br from-amber-100 to-amber-50/50 p-6 lg:p-8 rounded-[2rem] border border-amber-200 shadow-[0_8px_30px_-12px_rgba(245,158,11,0.25)] flex flex-col justify-center text-left h-full">
+                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">⚡</div>
+                  <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Ngebut Tanpa Rem</h3>
+                  <p className="text-gray-600 lg:text-lg leading-relaxed">Kita pake mesin canggih biar lo gak perlu nunggu lama. Kurang dari sedetik, stiker lo langsung jadi dan siap dikirim ke tongkrongan.</p>
+                </div>
+              </div>
 
-            <div className="min-w-[85vw] sm:min-w-[340px] xl:min-w-[400px] shrink-0 snap-center sm:snap-start bg-gradient-to-br from-emerald-100 to-emerald-50/50 p-8 xl:p-10 rounded-[2rem] border border-emerald-200 shadow-[0_8px_30px_-12px_rgba(16,185,129,0.25)]">
-              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">📱</div>
-              <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Selalu Ada Buat Lo</h3>
-              <p className="text-gray-600 lg:text-lg leading-relaxed">Tinggal chat di WA atau Tele lo. Gak perlu repot download aplikasi aneh-aneh yang cuma bikin memori HP lo penuh sesak.</p>
-            </div>
-            
-            {/* Padding element for right scroll spacing on desktop */}
-            <div className="hidden sm:block min-w-[1px] shrink-0"></div>
+              {/* Card 4 */}
+              <div className="px-3">
+                <div className="aspect-square bg-gradient-to-br from-emerald-100 to-emerald-50/50 p-6 lg:p-8 rounded-[2rem] border border-emerald-200 shadow-[0_8px_30px_-12px_rgba(16,185,129,0.25)] flex flex-col justify-center text-left h-full">
+                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">📱</div>
+                  <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Selalu Ada Buat Lo</h3>
+                  <p className="text-gray-600 lg:text-lg leading-relaxed">Tinggal chat di WA atau Tele lo. Gak perlu repot download aplikasi aneh-aneh yang cuma bikin memori HP lo penuh sesak.</p>
+                </div>
+              </div>
+            </Carousel>
           </div>
           </div>
         </section>
@@ -309,7 +349,8 @@ export default function Home() {
           <DotField 
             dotRadius={1.5}
             dotSpacing={25}
-            cursorForce={0.1}
+            cursorForce={0.8}
+            bulgeStrength={80}
             glowRadius={70}
           />
         </div>
@@ -318,7 +359,7 @@ export default function Home() {
             <div className="flex flex-col items-center md:items-start gap-4">
               <span className="font-heading font-black text-2xl sm:text-3xl tracking-tighter text-gray-900 uppercase">BobaSticker</span>
               <p className="text-sm text-gray-500 max-w-xs leading-relaxed">
-                Stiker paling satset no 1 di Wakanda. Chat sekarang di WA atau Telegram!
+                Stiker paling satset no 1 di Wakanda. Yuk coba sekarang di WA atau Telegram!
               </p>
             </div>
             
@@ -344,7 +385,7 @@ export default function Home() {
       </footer>
 
       {/* Scroll to Top Button */}
-      {showScrollTop && (
+      {showScrollTop && !isMenuOpen && (
         <button
           onClick={scrollToTop}
           className="fixed bottom-8 right-8 z-50 p-4 bg-gray-900 text-white rounded-2xl shadow-2xl hover:scale-110 active:scale-95 transition-all animate-fade-in"
