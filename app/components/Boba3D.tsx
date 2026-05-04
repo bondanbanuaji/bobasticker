@@ -12,10 +12,17 @@ function BobaCup() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setScaleFactor(1.3); // Lebih besar di mobile
+      const w = window.innerWidth;
+      if (w < 480) {
+        setScaleFactor(1.6); // Very large on small phones
+      } else if (w < 768) {
+        setScaleFactor(1.4); // Large on tablets/large phones
+      } else if (w < 1280) {
+        setScaleFactor(0.9); // Normal on laptops
+      } else if (w < 1920) {
+        setScaleFactor(0.8); // Slightly smaller on desktop
       } else {
-        setScaleFactor(0.85); // Lebih kecil di desktop
+        setScaleFactor(0.7); // Smaller on ultra-wide 2xl
       }
     };
     handleResize();

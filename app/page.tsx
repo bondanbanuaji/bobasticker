@@ -125,8 +125,8 @@ export default function Home() {
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold uppercase tracking-wider mb-6">
                   Stiker Paling Satset No 1. Di Wakanda
                 </div>
-                <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-8 leading-[1.1]">
-                  Sulap Foto Jadi <span className="sm:text-6xl md:text-7xl lg:text-8xl text-transparent text-[150px] bg-clip-text bg-gradient-to-r from-[var(--color-telegram)] to-[var(--color-whatsapp)]">Stiker</span> 
+                <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl 2xl:text-8xl font-bold tracking-tight text-gray-900 mb-8 leading-[1.1]">
+                  Sulap Foto Jadi <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-telegram)] to-[var(--color-whatsapp)] text-5xl sm:text-7xl lg:text-8xl xl:text-[120px] 2xl:text-[150px]">Stiker</span> 
                   <br />Satset Tanpa Nunggu Lama!
                 </h1>
                 <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
@@ -152,7 +152,7 @@ export default function Home() {
               </div>
 
               {/* 3D Side */}
-              <div className="flex-1 w-full h-[400px] sm:h-[450px] lg:h-[500px] relative animate-fade-in delay-200 opacity-0">
+              <div className="flex-1 w-full h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px] relative animate-fade-in delay-200 opacity-0">
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-50/50 to-purple-50/50 rounded-full blur-3xl -z-10"></div>
                 <Boba3D />
               </div>
@@ -167,10 +167,10 @@ export default function Home() {
             <div className="flex flex-col lg:flex-row gap-16 items-center">
               
               <div className="flex-1 animate-fade-in opacity-0">
-                <h2 className="font-heading text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 lg:max-w-xl">
                   Bukan Sekadar Janji Manis Kayak Mantan.
                 </h2>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed lg:max-w-2xl">
                   Kita buang jauh-jauh yang namanya antrean. Gambar lo langsung diproses pake <strong className="text-gray-900 font-semibold">sihir teknologi</strong> tanpa mampir ke database. Hasilnya? Stiker lo kelar sebelum lo sempet galauin dia.
                 </p>
                 <ul className="space-y-4">
@@ -241,8 +241,8 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
             <div className="animate-fade-in opacity-0">
-              <h2 className="font-heading text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Dari Hati Paling Dalam</h2>
-              <p className="text-lg text-gray-600 max-w-xl">Sat-set, aman banget, dan tanpa niat terselubung. Dibangun pake cinta dan teknologi yang paling ngertiin lo.</p>
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6">Dari Hati Paling Dalam</h2>
+              <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-xl lg:max-w-2xl">Sat-set, aman banget, dan tanpa niat terselubung. Dibangun pake cinta dan teknologi yang paling ngertiin lo.</p>
             </div>
             
             {/* Carousel Controls (Hidden on small mobile for touch focus) */}
@@ -270,31 +270,30 @@ export default function Home() {
             className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 animate-fade-in delay-200 opacity-0"
           >
             {/* Card 1 */}
-            <div className="min-w-[85vw] sm:min-w-[340px] max-w-[340px] shrink-0 snap-center sm:snap-start bg-gradient-to-br from-blue-100 to-blue-50/50 p-8 rounded-[2rem] border border-blue-200 shadow-[0_8px_30px_-12px_rgba(59,130,246,0.25)]">
+            <div className="min-w-[85vw] sm:min-w-[340px] xl:min-w-[400px] shrink-0 snap-center sm:snap-start bg-gradient-to-br from-blue-100 to-blue-50/50 p-8 xl:p-10 rounded-[2rem] border border-blue-200 shadow-[0_8px_30px_-12px_rgba(59,130,246,0.25)]">
               <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">💸</div>
-              <h3 className="font-heading text-xl font-bold text-gray-900 mb-3">Gratis, Seikhlas Hati Ini</h3>
-              <p className="text-gray-600 leading-relaxed">Gak ada tuh embel-embel premium. Lo berhak dapet yang terbaik tanpa harus ngeluarin duit, karena bahagia lo itu tujuan kita.</p>
+              <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Gratis, Seikhlas Hati Ini</h3>
+              <p className="text-gray-600 lg:text-lg leading-relaxed">Gak ada tuh embel-embel premium. Lo berhak dapet yang terbaik tanpa harus ngeluarin duit, karena bahagia lo itu tujuan kita.</p>
             </div>
 
             {/* Card 2 */}
-            <div className="min-w-[85vw] sm:min-w-[340px] max-w-[340px] shrink-0 snap-center sm:snap-start bg-gradient-to-br from-purple-100 to-purple-50/50 p-8 rounded-[2rem] border border-purple-200 shadow-[0_8px_30px_-12px_rgba(168,85,247,0.25)]">
+            <div className="min-w-[85vw] sm:min-w-[340px] xl:min-w-[400px] shrink-0 snap-center sm:snap-start bg-gradient-to-br from-purple-100 to-purple-50/50 p-8 xl:p-10 rounded-[2rem] border border-purple-200 shadow-[0_8px_30px_-12px_rgba(168,85,247,0.25)]">
               <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">🔒</div>
-              <h3 className="font-heading text-xl font-bold text-gray-900 mb-3">Rahasia Lo, Nyawa Kita</h3>
-              <p className="text-gray-600 leading-relaxed">Foto aib lo cuma mampir sekejap buat diproses, abis itu langsung kita hapus tanpa sisa. Kita penjaga rahasia yang paling setia.</p>
+              <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Rahasia Lo, Nyawa Kita</h3>
+              <p className="text-gray-600 lg:text-lg leading-relaxed">Foto aib lo cuma mampir sekejap buat diproses, abis itu langsung kita hapus tanpa sisa. Kita penjaga rahasia yang paling setia.</p>
             </div>
 
             {/* Card 3 */}
-            <div className="min-w-[85vw] sm:min-w-[340px] max-w-[340px] shrink-0 snap-center sm:snap-start bg-gradient-to-br from-amber-100 to-amber-50/50 p-8 rounded-[2rem] border border-amber-200 shadow-[0_8px_30px_-12px_rgba(245,158,11,0.25)]">
+            <div className="min-w-[85vw] sm:min-w-[340px] xl:min-w-[400px] shrink-0 snap-center sm:snap-start bg-gradient-to-br from-amber-100 to-amber-50/50 p-8 xl:p-10 rounded-[2rem] border border-amber-200 shadow-[0_8px_30px_-12px_rgba(245,158,11,0.25)]">
               <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">⚡</div>
-              <h3 className="font-heading text-xl font-bold text-gray-900 mb-3">Ngebut Tanpa Rem</h3>
-              <p className="text-gray-600 leading-relaxed">Kita pake mesin canggih biar lo gak perlu nunggu lama. Kurang dari sedetik, stiker lo langsung jadi dan siap dikirim ke tongkrongan.</p>
+              <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Ngebut Tanpa Rem</h3>
+              <p className="text-gray-600 lg:text-lg leading-relaxed">Kita pake mesin canggih biar lo gak perlu nunggu lama. Kurang dari sedetik, stiker lo langsung jadi dan siap dikirim ke tongkrongan.</p>
             </div>
 
-            {/* Card 4 */}
-            <div className="min-w-[85vw] sm:min-w-[340px] max-w-[340px] shrink-0 snap-center sm:snap-start bg-gradient-to-br from-emerald-100 to-emerald-50/50 p-8 rounded-[2rem] border border-emerald-200 shadow-[0_8px_30px_-12px_rgba(16,185,129,0.25)]">
+            <div className="min-w-[85vw] sm:min-w-[340px] xl:min-w-[400px] shrink-0 snap-center sm:snap-start bg-gradient-to-br from-emerald-100 to-emerald-50/50 p-8 xl:p-10 rounded-[2rem] border border-emerald-200 shadow-[0_8px_30px_-12px_rgba(16,185,129,0.25)]">
               <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">📱</div>
-              <h3 className="font-heading text-xl font-bold text-gray-900 mb-3">Selalu Ada Buat Lo</h3>
-              <p className="text-gray-600 leading-relaxed">Tinggal chat di WA atau Tele lo. Gak perlu repot download aplikasi aneh-aneh yang cuma bikin memori HP lo penuh sesak.</p>
+              <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Selalu Ada Buat Lo</h3>
+              <p className="text-gray-600 lg:text-lg leading-relaxed">Tinggal chat di WA atau Tele lo. Gak perlu repot download aplikasi aneh-aneh yang cuma bikin memori HP lo penuh sesak.</p>
             </div>
             
             {/* Padding element for right scroll spacing on desktop */}
