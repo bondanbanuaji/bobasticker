@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, Suspense, ReactNode } from "react";
+import { useRef, useState, useEffect, Suspense, ReactNode } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Float, ContactShadows, Environment } from "@react-three/drei";
 import * as THREE from "three";
@@ -8,6 +8,20 @@ import * as THREE from "three";
 function BobaCup() {
   const groupRef = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
+  const [scaleFactor, setScaleFactor] = useState(1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setScaleFactor(1.3); // Lebih besar di mobile
+      } else {
+        setScaleFactor(0.85); // Lebih kecil di desktop
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Generate Pearls mathematically around the surface of the cup
   const pearls: ReactNode[] = [];
@@ -40,7 +54,7 @@ function BobaCup() {
       groupRef.current.rotation.y += delta * 0.5;
       
       // Interactive pop on hover
-      const targetScale = hovered ? 1.05 : 1;
+      const targetScale = hovered ? 1.05 * scaleFactor : 1 * scaleFactor;
       groupRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1);
     }
   });
