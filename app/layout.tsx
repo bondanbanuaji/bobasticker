@@ -3,16 +3,38 @@ import SmoothScroll from "./components/SmoothScroll";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "BobaSticker — Sihir Foto Jadi Stiker Instan",
+  metadataBase: new URL("https://bobasticker.vercel.app"),
+  title: {
+    default: "BobaSticker — Sihir Foto Jadi Stiker Instan Gratis",
+    template: "%s | BobaSticker"
+  },
   description:
-    "Tinggal kirim foto, abrakadabra jadi stiker. Bot Telegram & WhatsApp yang ngertiin banget, ubah foto lo jadi stiker dalam hitungan detik. 100% gratis, tanpa login, tanpa ribet.",
-  keywords: ["telegram", "whatsapp", "stiker", "bot", "foto", "webp", "gratis", "boba sticker", "sticker bot engine"],
+    "Ubah foto jadi stiker Telegram & WhatsApp dalam hitungan detik. 100% gratis, tanpa login, sat-set langsung jadi. Bot stiker paling kencang di Wakanda!",
+  keywords: [
+    "boba sticker", "bobasticker", "bot stiker wa", "bot stiker telegram", 
+    "sticker bot engine", "buat stiker wa gratis", "buat stiker telegram", 
+    "stiker wa otomatis", "stiker telegram otomatis", "cara buat stiker wa", 
+    "wa sticker bot", "telegram sticker bot", "stiker instan", "stiker boba",
+    "sticker maker online", "free sticker bot", "whatsapp sticker maker",
+    "telegram sticker maker", "stiker gratis", "no ads sticker bot"
+  ],
+  authors: [{ name: "Bondan Banuaji", url: "https://www.instagram.com/bdn_bnj" }],
+  creator: "Bondan Banuaji",
+  publisher: "BobaSticker",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: [
-      { url: "/icon.png", type: "image/png" },
+      { url: "/images/icon.jpg", type: "image/jpeg" },
       { url: "/favicon.ico", sizes: "any" },
     ],
-    apple: "/icon.png",
+    apple: "/images/icon.jpg",
   },
   verification: {
     google: "PmEGbJJC6OvnZ2rxFdJdsPEGMMdbvWm-daSfYxs3IsI",
@@ -23,17 +45,33 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
   openGraph: {
     title: "BobaSticker — Sihir Foto Jadi Stiker Instan",
-    description: "Tinggal kirim foto, stiker langsung jadi. Gratis seumur hidup, bebas iklan.",
-    type: "website",
-    url: "https://bobasticker.vercel.app", // Adjust if domain is different
+    description: "Tinggal kirim foto, stiker langsung jadi. Gratis seumur hidup, bebas iklan, dan privasi terjaga.",
+    url: "https://bobasticker.vercel.app",
     siteName: "BobaSticker",
+    images: [
+      {
+        url: "/images/icon.jpg",
+        width: 1200,
+        height: 630,
+        alt: "BobaSticker Preview",
+      },
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BobaSticker — Sihir Foto Jadi Stiker Instan",
+    description: "Ubah foto jadi stiker Telegram & WhatsApp dalam hitungan detik. 100% gratis!",
+    images: ["/images/icon.jpg"],
+    creator: "@bdn_bnj",
   },
 };
 
@@ -45,8 +83,8 @@ export default function RootLayout({
   return (
     <html lang="id" className="antialiased">
       <head>
-        <link rel="icon" href="/icon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/icon.png" />
+        <link rel="icon" href="/images/icon.jpg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/images/icon.jpg" />
         <meta name="theme-color" content="#ffffff" />
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
