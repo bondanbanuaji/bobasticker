@@ -142,17 +142,19 @@ export default function Home() {
         isMenuOpen ? 'bg-transparent' : 
         isScrolled ? 'bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm' : 'bg-transparent'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
-          <div className="flex justify-between h-16 sm:h-20 items-center">
-            <div className="flex items-center gap-2 relative z-[60]">
-              <span className="font-heading font-black text-lg sm:text-2xl lg:text-3xl tracking-tighter text-gray-900 uppercase whitespace-nowrap">BobaSticker</span>
-            </div>
-            
-            {/* Desktop Menu */}
-            <div className={`hidden md:flex space-x-8 transition-opacity duration-500 ${isMenuOpen ? 'opacity-0' : ''}`}>
-              <a href="#performance" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Tentang Kami</a>
-              <a href="#philosophy" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Filosofi</a>
-              <button onClick={handleSupportClick} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors cursor-pointer focus:outline-none">Support</button>
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+          <div className="flex justify-between h-16 items-center">
+            <div className="flex items-center gap-10">
+              <div className="flex items-center gap-2 relative z-[60]">
+                <span className="font-heading font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl tracking-tight lg:tracking-tighter text-gray-900 uppercase whitespace-nowrap">BobaSticker</span>
+              </div>
+              
+              {/* Desktop Menu */}
+              <div className={`hidden md:flex space-x-8 transition-opacity duration-500 ${isMenuOpen ? 'opacity-0' : ''}`}>
+                <a href="#performance" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Tentang Kami</a>
+                <a href="#philosophy" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Filosofi</a>
+                <button onClick={handleSupportClick} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors cursor-pointer focus:outline-none">Support</button>
+              </div>
             </div>
 
             {/* Mobile Burger Icon (Sleek Morphing Animation) */}
@@ -204,19 +206,19 @@ export default function Home() {
         </div>
       </div>
 
-      <main className="pt-16 sm:pt-20">
+      <main className="pt-16">
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-32 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <section className="relative pt-24 pb-16 sm:pt-32 sm:pb-24 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+            <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
               
               {/* Text Side */}
               <div className="flex-1 text-center lg:text-left z-10 animate-fade-in">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold uppercase tracking-wider mb-6">
-                  Stiker Paling Satset No 1. Di Wakanda
+                  Bot stiker Paling Satset No 1. Di Indonesia
                 </div>
-                <h1 className="font-heading text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-gray-900 mb-8 leading-[1.1]">
-                  Sulap Foto Jadi <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-telegram)] to-[var(--color-whatsapp)] text-5xl sm:text-7xl lg:text-7xl xl:text-8xl 2xl:text-[110px]">Stiker</span> 
+                <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-8 leading-[1.15]">
+                  Sulap Foto Jadi <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-telegram)] to-[var(--color-whatsapp)] text-4xl sm:text-6xl lg:text-7xl 2xl:text-8xl">Stiker</span> 
                   <br />Satset Tanpa Nunggu Lama!
                 </h1>
                 <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
@@ -242,7 +244,7 @@ export default function Home() {
               </div>
 
               {/* 3D Side */}
-              <div className="flex-1 w-full h-[450px] sm:h-[550px] lg:h-[600px] xl:h-[700px] relative animate-fade-in delay-200 opacity-0">
+              <div className="flex-1 w-full h-[400px] sm:h-[500px] lg:h-[550px] relative animate-fade-in delay-200 opacity-0">
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-50/50 to-purple-50/50 rounded-full blur-3xl -z-10"></div>
                 <Boba3D />
               </div>
@@ -252,9 +254,9 @@ export default function Home() {
         </section>
 
         {/* Performance Comparison */}
-        <section id="performance" className="py-24 bg-transparent border-y border-gray-100 relative z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row gap-16 items-center">
+        <section id="performance" className="py-20 bg-transparent border-y border-gray-100 relative z-10">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8">
+            <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
               
               <div className="flex-1 animate-fade-in opacity-0">
                 <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 lg:max-w-xl">
@@ -334,8 +336,8 @@ export default function Home() {
         </section>
 
         {/* Philosophy Carousel */}
-        <section id="philosophy" className="py-24 overflow-hidden relative border-t border-gray-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <section id="philosophy" className="py-20 overflow-hidden relative border-t border-gray-100">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
             <div className="animate-fade-in opacity-0">
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6">Dari Hati Paling Dalam</h2>
