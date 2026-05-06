@@ -89,12 +89,19 @@ export default function Home() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 640) {
+      const width = window.innerWidth;
+      if (width < 640) {
         setCenterPercentage(85);
-      } else if (window.innerWidth < 1024) {
+      } else if (width < 768) {
+        setCenterPercentage(60);
+      } else if (width < 1024) {
         setCenterPercentage(45);
-      } else {
+      } else if (width < 1280) {
         setCenterPercentage(33.33);
+      } else if (width < 1536) {
+        setCenterPercentage(28);
+      } else {
+        setCenterPercentage(22);
       }
     };
     handleResize();
@@ -378,38 +385,38 @@ export default function Home() {
               renderIndicator={() => null}
             >
               {/* Card 1 */}
-              <div className="px-3">
-                <div className="aspect-square bg-gradient-to-br from-blue-100 to-blue-50/50 p-6 lg:p-8 rounded-[2rem] border border-blue-200 shadow-[0_8px_30px_-12px_rgba(59,130,246,0.25)] flex flex-col justify-center text-left h-full">
-                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">💸</div>
-                  <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Gratis, Seikhlas Hati Ini</h3>
-                  <p className="text-gray-600 lg:text-lg leading-relaxed">Gak ada tuh embel-embel premium. Lo berhak dapet yang terbaik tanpa harus ngeluarin duit, karena bahagia lo itu tujuan kita.</p>
+              <div className="px-3 h-full">
+                <div className="aspect-square sm:aspect-[4/5] md:aspect-square lg:aspect-[4/5] bg-gradient-to-br from-blue-100 to-blue-50/50 p-6 sm:p-8 md:p-10 lg:p-12 rounded-[2.5rem] border border-blue-200 shadow-[0_8px_30px_-12px_rgba(59,130,246,0.25)] flex flex-col justify-center text-left h-full transition-all hover:scale-[1.02]">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-white rounded-2xl sm:rounded-3xl flex items-center justify-center text-xl sm:text-2xl md:text-3xl lg:text-4xl shadow-sm border border-gray-100 mb-6 sm:mb-8">💸</div>
+                  <h3 className="font-heading text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Gratis, Seikhlas Hati Ini</h3>
+                  <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed">Gak ada tuh embel-embel premium. Lo berhak dapet yang terbaik tanpa harus ngeluarin duit, karena bahagia lo itu tujuan kita.</p>
                 </div>
               </div>
 
               {/* Card 2 */}
-              <div className="px-3">
-                <div className="aspect-square bg-gradient-to-br from-purple-100 to-purple-50/50 p-6 lg:p-8 rounded-[2rem] border border-purple-200 shadow-[0_8px_30px_-12px_rgba(168,85,247,0.25)] flex flex-col justify-center text-left h-full">
-                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">🔒</div>
-                  <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Rahasia Lo, Nyawa Kita</h3>
-                  <p className="text-gray-600 lg:text-lg leading-relaxed">Foto aib lo cuma mampir sekejap buat diproses, abis itu langsung kita hapus tanpa sisa. Kita penjaga rahasia yang paling setia.</p>
+              <div className="px-3 h-full">
+                <div className="aspect-square sm:aspect-[4/5] md:aspect-square lg:aspect-[4/5] bg-gradient-to-br from-purple-100 to-purple-50/50 p-6 sm:p-8 md:p-10 lg:p-12 rounded-[2.5rem] border border-purple-200 shadow-[0_8px_30px_-12px_rgba(168,85,247,0.25)] flex flex-col justify-center text-left h-full transition-all hover:scale-[1.02]">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-white rounded-2xl sm:rounded-3xl flex items-center justify-center text-xl sm:text-2xl md:text-3xl lg:text-4xl shadow-sm border border-gray-100 mb-6 sm:mb-8">🔒</div>
+                  <h3 className="font-heading text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Rahasia Lo, Nyawa Kita</h3>
+                  <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed">Foto aib lo cuma mampir sekejap buat diproses, abis itu langsung kita hapus tanpa sisa. Kita penjaga rahasia yang paling setia.</p>
                 </div>
               </div>
 
               {/* Card 3 */}
-              <div className="px-3">
-                <div className="aspect-square bg-gradient-to-br from-amber-100 to-amber-50/50 p-6 lg:p-8 rounded-[2rem] border border-amber-200 shadow-[0_8px_30px_-12px_rgba(245,158,11,0.25)] flex flex-col justify-center text-left h-full">
-                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">⚡</div>
-                  <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Ngebut Tanpa Rem</h3>
-                  <p className="text-gray-600 lg:text-lg leading-relaxed">Kita pake mesin canggih biar lo gak perlu nunggu lama. Kurang dari sedetik, stiker lo langsung jadi dan siap dikirim ke tongkrongan.</p>
+              <div className="px-3 h-full">
+                <div className="aspect-square sm:aspect-[4/5] md:aspect-square lg:aspect-[4/5] bg-gradient-to-br from-amber-100 to-amber-50/50 p-6 sm:p-8 md:p-10 lg:p-12 rounded-[2.5rem] border border-amber-200 shadow-[0_8px_30px_-12px_rgba(245,158,11,0.25)] flex flex-col justify-center text-left h-full transition-all hover:scale-[1.02]">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-white rounded-2xl sm:rounded-3xl flex items-center justify-center text-xl sm:text-2xl md:text-3xl lg:text-4xl shadow-sm border border-gray-100 mb-6 sm:mb-8">⚡</div>
+                  <h3 className="font-heading text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Ngebut Tanpa Rem</h3>
+                  <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed">Kita pake mesin canggih biar lo gak perlu nunggu lama. Kurang dari sedetik, stiker lo langsung jadi dan siap dikirim ke tongkrongan.</p>
                 </div>
               </div>
 
               {/* Card 4 */}
-              <div className="px-3">
-                <div className="aspect-square bg-gradient-to-br from-emerald-100 to-emerald-50/50 p-6 lg:p-8 rounded-[2rem] border border-emerald-200 shadow-[0_8px_30px_-12px_rgba(16,185,129,0.25)] flex flex-col justify-center text-left h-full">
-                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gray-100 mb-6">📱</div>
-                  <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 mb-3">Selalu Ada Buat Lo</h3>
-                  <p className="text-gray-600 lg:text-lg leading-relaxed">Tinggal chat di WA atau Tele lo. Gak perlu repot download aplikasi aneh-aneh yang cuma bikin memori HP lo penuh sesak.</p>
+              <div className="px-3 h-full">
+                <div className="aspect-square sm:aspect-[4/5] md:aspect-square lg:aspect-[4/5] bg-gradient-to-br from-emerald-100 to-emerald-50/50 p-6 sm:p-8 md:p-10 lg:p-12 rounded-[2.5rem] border border-emerald-200 shadow-[0_8px_30px_-12px_rgba(16,185,129,0.25)] flex flex-col justify-center text-left h-full transition-all hover:scale-[1.02]">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-white rounded-2xl sm:rounded-3xl flex items-center justify-center text-xl sm:text-2xl md:text-3xl lg:text-4xl shadow-sm border border-gray-100 mb-6 sm:mb-8">📱</div>
+                  <h3 className="font-heading text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Selalu Ada Buat Lo</h3>
+                  <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed">Tinggal chat di WA atau Tele lo. Gak perlu repot download aplikasi aneh-aneh yang cuma bikin memori HP lo penuh sesak.</p>
                 </div>
               </div>
             </Carousel>
