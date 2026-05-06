@@ -197,7 +197,7 @@ export default function Home() {
                 onClick={handleSupportClick}
                 className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors cursor-pointer focus:outline-none"
               >
-                Donate
+                Donasi
               </button>
             </div>
 
@@ -254,7 +254,7 @@ export default function Home() {
             onClick={handleSupportClick}
             className="font-heading text-4xl font-bold text-gray-900 hover:text-[var(--color-whatsapp)] transition-all tracking-tight focus:outline-none"
           >
-            Donate
+            Donasi
           </button>
         </div>
       </div>
