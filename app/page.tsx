@@ -160,7 +160,7 @@ export default function Home() {
               <div className={`hidden md:flex space-x-8 transition-opacity duration-500 ${isMenuOpen ? 'opacity-0' : ''}`}>
                 <a href="#performance" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Tentang Kami</a>
                 <a href="#philosophy" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Filosofi</a>
-                <button onClick={handleSupportClick} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors cursor-pointer focus:outline-none">Support</button>
+                <button onClick={handleSupportClick} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors cursor-pointer focus:outline-none">Donate</button>
               </div>
             </div>
 
@@ -170,7 +170,7 @@ export default function Home() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
-              <div className="relative w-6 h-5">
+              <div className="relative w-9 h-5 mr-2">
                 <span className={`absolute left-0 w-full h-[2px] bg-gray-900 transition-all duration-300 ease-in-out ${isMenuOpen ? 'top-2 rotate-45' : 'top-0'}`} />
                 <span className={`absolute left-0 w-full h-[2px] bg-gray-900 transition-all duration-300 ease-in-out top-2 ${isMenuOpen ? 'opacity-0 -translate-x-2' : 'opacity-100'}`} />
                 <span className={`absolute left-0 w-full h-[2px] bg-gray-900 transition-all duration-300 ease-in-out ${isMenuOpen ? 'top-2 -rotate-45' : 'top-4'}`} />
@@ -181,12 +181,13 @@ export default function Home() {
       </nav>
 
       <div 
-        className={`fixed inset-0 z-40 bg-white/95 backdrop-blur-2xl transition-all duration-500 ease-in-out md:hidden flex flex-col items-center justify-center ${
+        className={`fixed inset-0 z-40 transition-all duration-500 ease-in-out md:hidden flex flex-col items-center justify-center ${
           isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
         }`}
       >
-        <div className="absolute inset-0 z-0 opacity-20">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[var(--color-telegram)]/20 via-transparent to-[var(--color-whatsapp)]/20"></div>
+        <div className="absolute inset-0 z-0">
+          <img src="/images/bg_nav.jpg" alt="Background" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0 bg-white/80 backdrop-blur-xl"></div>
         </div>
         
         <div className="flex flex-col items-center gap-7 relative z-10">
@@ -208,7 +209,7 @@ export default function Home() {
             onClick={handleSupportClick}
             className="font-heading text-4xl font-bold text-gray-900 hover:text-[var(--color-whatsapp)] transition-all tracking-tight focus:outline-none"
           >
-            Support
+            Donate
           </button>
         </div>
       </div>
