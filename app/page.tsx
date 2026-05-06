@@ -92,7 +92,7 @@ export default function Home() {
 
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
-      audioRef.current.play().catch(() => {});
+      audioRef.current.play().catch(() => { });
     }
 
     setTimeout(() => {
@@ -170,13 +170,12 @@ export default function Home() {
 
       {/* ── Navigation ─────────────────────────────────────────────────────── */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isMenuOpen
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isMenuOpen
             ? "bg-transparent"
             : isScrolled
-            ? "bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm"
-            : "bg-transparent"
-        }`}
+              ? "bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm"
+              : "bg-transparent"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
           <div className="flex justify-between h-20 items-center">
@@ -210,19 +209,16 @@ export default function Home() {
             >
               <div className="relative w-9 h-5 mr-2">
                 <span
-                  className={`absolute left-0 w-full h-[2px] bg-gray-900 transition-all duration-300 ease-in-out ${
-                    isMenuOpen ? "top-2 rotate-45" : "top-0"
-                  }`}
+                  className={`absolute left-0 w-full h-[2px] bg-gray-900 transition-all duration-300 ease-in-out ${isMenuOpen ? "top-2 rotate-45" : "top-0"
+                    }`}
                 />
                 <span
-                  className={`absolute left-0 w-full h-[2px] bg-gray-900 transition-all duration-300 ease-in-out top-2 ${
-                    isMenuOpen ? "opacity-0 -translate-x-2" : "opacity-100"
-                  }`}
+                  className={`absolute left-0 w-full h-[2px] bg-gray-900 transition-all duration-300 ease-in-out top-2 ${isMenuOpen ? "opacity-0 -translate-x-2" : "opacity-100"
+                    }`}
                 />
                 <span
-                  className={`absolute left-0 w-full h-[2px] bg-gray-900 transition-all duration-300 ease-in-out ${
-                    isMenuOpen ? "top-2 -rotate-45" : "top-4"
-                  }`}
+                  className={`absolute left-0 w-full h-[2px] bg-gray-900 transition-all duration-300 ease-in-out ${isMenuOpen ? "top-2 -rotate-45" : "top-4"
+                    }`}
                 />
               </div>
             </button>
@@ -232,9 +228,8 @@ export default function Home() {
 
       {/* Mobile Full-Screen Menu */}
       <div
-        className={`fixed inset-0 z-40 transition-all duration-500 ease-in-out md:hidden flex flex-col items-center justify-center ${
-          isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
-        }`}
+        className={`fixed inset-0 z-40 transition-all duration-500 ease-in-out md:hidden flex flex-col items-center justify-center ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
+          }`}
       >
         <div className="absolute inset-0 z-0">
           <img src="/images/bg_nav.jpg" alt="Background" className="w-full h-full object-cover object-center" />
@@ -568,11 +563,10 @@ export default function Home() {
                   key={i}
                   onClick={() => carouselRef.current?.moveTo(i)}
                   aria-label={`Go to slide ${i + 1}`}
-                  className={`transition-all duration-300 rounded-full ${
-                    carouselIndex === i
+                  className={`transition-all duration-300 rounded-full ${carouselIndex === i
                       ? "w-6 h-2 bg-gray-800"
                       : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
-                  }`}
+                    }`}
                 />
               ))}
             </div>
@@ -636,9 +630,8 @@ export default function Home() {
         {toasts.map((toast) => (
           <div
             key={toast.id}
-            className={`flex items-center gap-3 px-6 py-4 bg-white/90 backdrop-blur-xl border border-green-100 shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-2xl pointer-events-auto min-w-[300px] max-w-sm transition-all duration-500 ${
-              toast.isExiting ? "animate-toast-out" : "animate-toast-in"
-            }`}
+            className={`flex items-center gap-3 px-6 py-4 bg-white/90 backdrop-blur-xl border border-green-100 shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-2xl pointer-events-auto min-w-[300px] max-w-sm transition-all duration-500 ${toast.isExiting ? "animate-toast-out" : "animate-toast-in"
+              }`}
           >
             <div className="w-10 h-10 rounded-xl overflow-hidden shrink-0 border border-gray-100">
               <img src="/images/icon.jpg" alt="Logo" className="w-full h-full object-cover" />
