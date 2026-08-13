@@ -1,0 +1,16 @@
+{
+  "projectId": "5a1f0b8a-c00f-4eaf-b1f3-09ec0a8462ef",
+  "backendProjectId": "63bb8526-fc9b-4c59-b541-0263bc6a73a5",
+  "projects": {
+    "frontend": {
+      "id": "5a1f0b8a-c00f-4eaf-b1f3-09ec0a8462ef",
+      "name": "BobaSticker",
+      "url": "https://bobasticker.vercel.app"
+    },
+    "backend": {
+      "id": "63bb8526-fc9b-4c59-b541-0263bc6a73a5",
+      "name": "BobaSticker API",
+      "url": "https://bobasticker.vercel.app"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "projectId": "5a1f0b8a-c00f-4eaf-b1f3-09ec0a8462ef",
+  "type": "frontend",
+  "name": "Footer shows copyright and developer credit",
+  "description": "The footer must show the copyright line with the current year and BobaSticker branding, plus a credit link to the developer's Instagram profile.",
+  "priority": "p3",
+  "planSteps": [
+    { "type": "action", "description": "Navigate to the homepage" },
+    { "type": "action", "description": "Scroll to the bottom of the page" },
+    { "type": "assertion", "description": "The footer shows the text 'BobaSticker' and a copyright line '© 2026 BobaSticker. Dibuat sepenuh hati bareng kopi dan Mendoan.'" },
+    { "type": "assertion", "description": "The footer has a developer credit with a round avatar image that links to an Instagram profile URL" }
+  ]
+}

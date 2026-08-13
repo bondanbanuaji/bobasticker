@@ -1,0 +1,12 @@
+{
+  "projectId": "5a1f0b8a-c00f-4eaf-b1f3-09ec0a8462ef",
+  "type": "frontend",
+  "name": "Donasi button shows a free-tier toast notification",
+  "description": "Clicking the 'Donasi' item in the navigation must trigger a toast notification in the top-right corner stating the service is still free.",
+  "priority": "p2",
+  "planSteps": [
+    { "type": "action", "description": "Navigate to the homepage" },
+    { "type": "action", "description": "Click the 'Donasi' button in the navigation menu" },
+    { "type": "assertion", "description": "A toast notification slides in from the top-right corner containing text about the service being free (mentions 'gratis')" }
+  ]
+}

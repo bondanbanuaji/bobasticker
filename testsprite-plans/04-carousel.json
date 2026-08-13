@@ -1,0 +1,13 @@
+{
+  "projectId": "5a1f0b8a-c00f-4eaf-b1f3-09ec0a8462ef",
+  "type": "frontend",
+  "name": "Carousel next arrow advances to the second philosophy card",
+  "description": "Clicking the carousel's next-slide arrow must move the 'Rahasia Lo, Nyawa Kita' card (the second card) into the centered position of the philosophy carousel.",
+  "priority": "p1",
+  "planSteps": [
+    { "type": "action", "description": "Navigate to the homepage" },
+    { "type": "action", "description": "Scroll to the philosophy section titled 'Dari Hati Paling Dalam'" },
+    { "type": "action", "description": "Click the carousel button labeled 'Next slide' (the right chevron)" },
+    { "type": "assertion", "description": "The card titled 'Rahasia Lo, Nyawa Kita' is now the visible center card of the carousel, showing its badge '100% Private'" }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "projectId": "5a1f0b8a-c00f-4eaf-b1f3-09ec0a8462ef",
+  "type": "frontend",
+  "name": "Scroll-to-top button appears after scrolling and returns to top",
+  "description": "After scrolling more than 400px down, a floating scroll-to-top button must appear in the bottom-right corner; clicking it must bring the page back to the top so the hero is visible again.",
+  "priority": "p2",
+  "planSteps": [
+    { "type": "action", "description": "Navigate to the homepage" },
+    { "type": "action", "description": "Scroll down the page until the footer area is visible" },
+    { "type": "assertion", "description": "A circular scroll-to-top button with an up arrow is visible fixed at the bottom-right corner of the viewport" },
+    { "type": "action", "description": "Click the scroll-to-top button" },
+    { "type": "assertion", "description": "The page has scrolled back to the top and the hero headline 'Sulap Foto Jadi Stiker' is visible again at the top of the viewport" }
+  ]
+}

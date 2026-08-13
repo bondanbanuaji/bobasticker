@@ -1,0 +1,12 @@
+{
+  "projectId": "5a1f0b8a-c00f-4eaf-b1f3-09ec0a8462ef",
+  "type": "frontend",
+  "name": "Performance section compares bot speeds with progress bars",
+  "description": "The 'Adu Mekanik Kecepatan' panel must show three stacked comparison rows (BobaSticker 0.8s, Bot Lain 3.5s, Bot Jadul 5.0s+) each with a horizontal progress bar, where the BobaSticker bar is the shortest.",
+  "priority": "p1",
+  "planSteps": [
+    { "type": "action", "description": "Navigate to the homepage" },
+    { "type": "action", "description": "Scroll to the section 'Bukan Sekadar Janji Manis Kayak Mantan'" },
+    { "type": "assertion", "description": "The speed panel titled 'Adu Mekanik Kecepatan (Detik)' shows three comparison rows stacked vertically: 'BobaSticker' with value '0.8s', 'Bot Lain (Yang Bikin Emosi)' with '3.5s', and 'Bot Jadul (Sering Ngantri)' with '5.0s+' — each row has a horizontal progress bar, and the BobaSticker bar is visibly the shortest" }
+  ]
+}

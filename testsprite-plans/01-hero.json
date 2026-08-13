@@ -1,0 +1,12 @@
+{
+  "projectId": "5a1f0b8a-c00f-4eaf-b1f3-09ec0a8462ef",
+  "type": "frontend",
+  "name": "Hero section shows headline and both platform CTA buttons",
+  "description": "The landing page hero must show the main headline and two primary action buttons side by side that link to Telegram and WhatsApp.",
+  "priority": "p1",
+  "planSteps": [
+    { "type": "action", "description": "Navigate to the homepage" },
+    { "type": "assertion", "description": "The hero area shows the headline 'Sulap Foto Jadi Stiker' followed by 'Satset Tanpa Nunggu Lama!'" },
+    { "type": "assertion", "description": "Two prominent buttons labeled 'COBA DI TELE' and 'COBA DI WA' are visible side by side in the hero section" }
+  ]
+}

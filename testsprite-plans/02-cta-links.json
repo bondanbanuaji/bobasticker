@@ -1,0 +1,12 @@
+{
+  "projectId": "5a1f0b8a-c00f-4eaf-b1f3-09ec0a8462ef",
+  "type": "frontend",
+  "name": "CTA buttons link to the correct Telegram and WhatsApp targets",
+  "description": "The 'COBA DI TELE' button must point to the official bot on Telegram and the 'COBA DI WA' button must open a WhatsApp chat with the bot number via wa.me.",
+  "priority": "p1",
+  "planSteps": [
+    { "type": "action", "description": "Navigate to the homepage" },
+    { "type": "assertion", "description": "The 'COBA DI TELE' button links to https://t.me/BobaSticker_bot" },
+    { "type": "assertion", "description": "The 'COBA DI WA' button links to a https://wa.me/ URL that contains a phone number" }
+  ]
+}

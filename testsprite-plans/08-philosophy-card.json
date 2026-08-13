@@ -1,0 +1,12 @@
+{
+  "projectId": "5a1f0b8a-c00f-4eaf-b1f3-09ec0a8462ef",
+  "type": "frontend",
+  "name": "Philosophy carousel shows the first value card",
+  "description": "The philosophy carousel must render its first card 'Gratis, Seikhlas Hati Ini' with the 'Free Forever' badge when the page loads.",
+  "priority": "p2",
+  "planSteps": [
+    { "type": "action", "description": "Navigate to the homepage" },
+    { "type": "action", "description": "Scroll to the philosophy section titled 'Dari Hati Paling Dalam'" },
+    { "type": "assertion", "description": "The carousel shows a card titled 'Gratis, Seikhlas Hati Ini' with the badge 'Free Forever' and a description mentioning 'Gak ada tuh embel-embel premium'" }
+  ]
+}
